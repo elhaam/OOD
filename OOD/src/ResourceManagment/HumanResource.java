@@ -1,5 +1,5 @@
 package ResourceManagment;
 
-public class HumanResource {
+public class HumanResource extends Resource {
 
 }

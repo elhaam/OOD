@@ -1,6 +1,6 @@
 package ResourceManagment;
 
-public class InformationalResource extends Resource{
+public class InformationalResource {
 
 	public InformationalResource() {
 		// TODO Auto-generated constructor stub
