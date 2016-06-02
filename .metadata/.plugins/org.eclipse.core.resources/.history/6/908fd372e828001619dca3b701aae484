@@ -6,9 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import ResourceManagment.PhysicalResource;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -16,16 +13,14 @@ import java.awt.event.ActionEvent;
 public class PhysicalUI {
 
 	private JFrame frame;
-	private JTextField textFieldpropertyNo;
-	private JTextField textFieldtype;
-	private JTextField textFieldnameModel;
-	public PhysicalResource physicalResource;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
 	 */
 	public void showPhysicalUI() {
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -75,36 +70,28 @@ public class PhysicalUI {
 		nameModel.setBounds(285, 164, 70, 14);
 		panel.add(nameModel);
 		
-		textFieldpropertyNo = new JTextField();
-		textFieldpropertyNo.setBounds(134, 57, 86, 20);
-		panel.add(textFieldpropertyNo);
-		textFieldpropertyNo.setColumns(10);
+		textField = new JTextField();
+		textField.setBounds(134, 57, 86, 20);
+		panel.add(textField);
+		textField.setColumns(10);
 		
-		textFieldtype = new JTextField();
-		textFieldtype.setBounds(134, 103, 86, 20);
-		panel.add(textFieldtype);
-		textFieldtype.setColumns(10);
+		textField_1 = new JTextField();
+		textField_1.setBounds(134, 103, 86, 20);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
 		
-		textFieldnameModel = new JTextField();
-		textFieldnameModel.setBounds(134, 161, 86, 20);
-		panel.add(textFieldnameModel);
-		textFieldnameModel.setColumns(10);
+		textField_2 = new JTextField();
+		textField_2.setBounds(134, 161, 86, 20);
+		panel.add(textField_2);
+		textField_2.setColumns(10);
 		
-		JButton createPhysResBut = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
-		createPhysResBut.addActionListener(new ActionListener() {
+		JButton button = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
+		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				create(textFieldpropertyNo,textFieldtype,textFieldnameModel);
 			}
-
-			
 		});
-		createPhysResBut.setBounds(36, 214, 89, 23);
-		panel.add(createPhysResBut);
-	}
-	public void create(JTextField textFieldpropertyNo, JTextField textFieldtype,
-			JTextField textFieldnameModel) {
-		// TODO Auto-generated method stub
-		this.physicalResource = new PhysicalResource(Integer.parseInt(textFieldpropertyNo.getText()),textFieldtype.toString(),textFieldnameModel.toString());
+		button.setBounds(36, 214, 89, 23);
+		panel.add(button);
 	}
 
 }

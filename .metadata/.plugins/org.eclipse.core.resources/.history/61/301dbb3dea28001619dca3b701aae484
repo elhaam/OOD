@@ -6,9 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import ResourceManagment.PhysicalResource;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -19,13 +16,11 @@ public class PhysicalUI {
 	private JTextField textFieldpropertyNo;
 	private JTextField textFieldtype;
 	private JTextField textFieldnameModel;
-	public PhysicalResource physicalResource;
 
 	/**
 	 * Launch the application.
 	 */
 	public void showPhysicalUI() {
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -93,18 +88,10 @@ public class PhysicalUI {
 		JButton createPhysResBut = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
 		createPhysResBut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				create(textFieldpropertyNo,textFieldtype,textFieldnameModel);
 			}
-
-			
 		});
 		createPhysResBut.setBounds(36, 214, 89, 23);
 		panel.add(createPhysResBut);
-	}
-	public void create(JTextField textFieldpropertyNo, JTextField textFieldtype,
-			JTextField textFieldnameModel) {
-		// TODO Auto-generated method stub
-		this.physicalResource = new PhysicalResource(Integer.parseInt(textFieldpropertyNo.getText()),textFieldtype.toString(),textFieldnameModel.toString());
 	}
 
 }
