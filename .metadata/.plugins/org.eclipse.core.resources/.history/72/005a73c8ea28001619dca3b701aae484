@@ -25,7 +25,7 @@ public class PhysicalUI {
 	 * Launch the application.
 	 */
 	public void showPhysicalUI() {
-		
+		this.physicalResource=pr;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -101,10 +101,10 @@ public class PhysicalUI {
 		createPhysResBut.setBounds(36, 214, 89, 23);
 		panel.add(createPhysResBut);
 	}
-	public void create(JTextField textFieldpropertyNo, JTextField textFieldtype,
+	private void create(JTextField textFieldpropertyNo, JTextField textFieldtype,
 			JTextField textFieldnameModel) {
 		// TODO Auto-generated method stub
-		this.physicalResource = new PhysicalResource(Integer.parseInt(textFieldpropertyNo.getText()),textFieldtype.toString(),textFieldnameModel.toString());
+		this.physicalResource= new 
 	}
 
 }

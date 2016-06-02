@@ -83,7 +83,7 @@ public class ResourceUI {
 				
 					PhysicalUI prui=new PhysicalUI();
 					prui.showPhysicalUI();
-					frame.dispose();
+					//System.exit(0);
 				}
 				else if(finanRadButton.isSelected()){
 					

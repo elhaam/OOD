@@ -10,7 +10,6 @@ public class PhysicalResource extends Resource{
 		super(ResourceType.PHYSICAL);
 		this.modelName=m;
 		this.type=t;
-		this.propertyNo=p;
 		
 	}
 

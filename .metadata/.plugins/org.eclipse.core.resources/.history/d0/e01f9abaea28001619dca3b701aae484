@@ -80,10 +80,9 @@ public class ResourceUI {
 		cont.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(phyisRadButton.isSelected()){
-				
+					PhysicalResource pr=new PhysicalResource();
 					PhysicalUI prui=new PhysicalUI();
-					prui.showPhysicalUI();
-					frame.dispose();
+					prui.showPhysicalUI(pr);
 				}
 				else if(finanRadButton.isSelected()){
 					

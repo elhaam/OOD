@@ -82,8 +82,7 @@ public class ResourceUI {
 				if(phyisRadButton.isSelected()){
 				
 					PhysicalUI prui=new PhysicalUI();
-					prui.showPhysicalUI();
-					frame.dispose();
+					prui.showPhysicalUI());
 				}
 				else if(finanRadButton.isSelected()){
 					
