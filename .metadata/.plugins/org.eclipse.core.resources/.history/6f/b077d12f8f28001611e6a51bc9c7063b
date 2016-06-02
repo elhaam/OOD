@@ -63,7 +63,6 @@ public class Resource extends JFrame {
 		JButton button = new JButton("\u0627\u062F\u0627\u0645\u0647 \u06CC \u062B\u0628\u062A");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 			}
 		});
 		button.setBounds(45, 203, 89, 23);
