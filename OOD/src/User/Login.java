@@ -1,0 +1,125 @@
+package User;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import UI.HomeUI;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.awt.event.ActionEvent;
+
+public class Login extends JFrame {
+
+	Connection con = null;
+	ResultSet rs = null;
+	PreparedStatement pst = null;
+
+	private JPanel contentPane;
+	private JTextField username;
+	private JPasswordField password;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Login() {
+		setTitle("Login");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 11, 414, 239);
+		contentPane.add(panel);
+		panel.setLayout(null);
+
+		JLabel lblNewLabel = new JLabel("username");
+		lblNewLabel.setBounds(10, 56, 73, 14);
+		panel.add(lblNewLabel);
+
+		username = new JTextField();
+		username.setBounds(93, 53, 86, 20);
+		panel.add(username);
+		username.setColumns(10);
+
+		JLabel lblPassword = new JLabel("password");
+		lblPassword.setBounds(10, 111, 62, 14);
+		panel.add(lblPassword);
+
+		password = new JPasswordField();
+		password.setBounds(93, 108, 86, 20);
+		panel.add(password);
+
+		JButton loginEnter = new JButton("Enter");
+		loginEnter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HomeUI s = new HomeUI();
+				s.newScreen();
+				/*
+				 * DB starts here
+				 */
+				String sql = "Select * from Table1 where name=? and password = ?";
+				try{
+					Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+					con = DriverManager.getConnection("jdbc:odbc:login", "Eli", "admin123");
+					pst = con.prepareStatement(sql);
+					pst.setString(1, username.getText());
+					pst.setString(2, password.getText());
+					rs = pst.executeQuery();
+					if(rs.next()){
+						JOptionPane.showMessageDialog(null, "Username and Password Matched");
+//						Class2 s = new Class2();
+//						s.setVisible(true);
+//						setVisible(false);
+					}
+					else{
+						JOptionPane.showMessageDialog(null, "Username and password not Correct");
+					}
+				}
+				catch(Exception e){
+					JOptionPane.showMessageDialog(null, e);
+				}
+				/*
+				 * DB ends here
+				 */
+			}
+		});
+		loginEnter.setBounds(278, 183, 89, 23);
+		panel.add(loginEnter);
+
+		JButton loginCancel = new JButton("Cancel");
+		loginCancel.setBounds(90, 183, 89, 23);
+		panel.add(loginCancel);
+	}
+}
