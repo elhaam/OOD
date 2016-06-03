@@ -7,12 +7,7 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import ResourceManagment.HumanResource;
-
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class HumanUI {
 
@@ -23,7 +18,6 @@ public class HumanUI {
 	private JTextField textFieldEmployeeNo;
 	private JTextField textFieldJob;
 	private JTextField textFieldStartDate;
-	HumanResource humanResource;
 
 	/**
 	 * Launch the application.
@@ -110,28 +104,14 @@ public class HumanUI {
 		frame.getContentPane().add(textFieldJob);
 		textFieldJob.setColumns(10);
 		
+		JButton button = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
+		button.setBounds(46, 290, 89, 23);
+		frame.getContentPane().add(button);
 		
 		textFieldStartDate = new JTextField();
 		textFieldStartDate.setBounds(162, 266, 86, 20);
 		frame.getContentPane().add(textFieldStartDate);
 		textFieldStartDate.setColumns(10);
-		JButton button = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				create(textFieldName ,textFieldLastName,textFieldMelliNo,textFieldEmployeeNo,textFieldStartDate,textFieldJob);
-			}
-		});
-		button.setBounds(46, 290, 89, 23);
-		frame.getContentPane().add(button);
-		
-	}
-
-	protected void create(JTextField textFieldName2, JTextField textFieldLastName2, JTextField textFieldMelliNo2,
-			JTextField textFieldEmployeeNo2, JTextField textFieldStartDate2, JTextField textFieldJob2) {
-		// TODO Auto-generated method stub
-		
-		this.humanResource=new HumanResource(textFieldName2.toString(), textFieldLastName2.toString(), Integer.parseInt(textFieldMelliNo2.getText()),
-				Integer.parseInt(textFieldEmployeeNo2.getText()), textFieldStartDate2.toString(), textFieldJob2.toString());
 	}
 
 }

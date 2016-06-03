@@ -7,9 +7,6 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import ResourceManagment.HumanResource;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -23,7 +20,6 @@ public class HumanUI {
 	private JTextField textFieldEmployeeNo;
 	private JTextField textFieldJob;
 	private JTextField textFieldStartDate;
-	HumanResource humanResource;
 
 	/**
 	 * Launch the application.
@@ -124,14 +120,6 @@ public class HumanUI {
 		button.setBounds(46, 290, 89, 23);
 		frame.getContentPane().add(button);
 		
-	}
-
-	protected void create(JTextField textFieldName2, JTextField textFieldLastName2, JTextField textFieldMelliNo2,
-			JTextField textFieldEmployeeNo2, JTextField textFieldStartDate2, JTextField textFieldJob2) {
-		// TODO Auto-generated method stub
-		
-		this.humanResource=new HumanResource(textFieldName2.toString(), textFieldLastName2.toString(), Integer.parseInt(textFieldMelliNo2.getText()),
-				Integer.parseInt(textFieldEmployeeNo2.getText()), textFieldStartDate2.toString(), textFieldJob2.toString());
 	}
 
 }
