@@ -1,0 +1,5 @@
+package ResourceManagment;
+
+public class InformationalResource extends Resource {
+
+}

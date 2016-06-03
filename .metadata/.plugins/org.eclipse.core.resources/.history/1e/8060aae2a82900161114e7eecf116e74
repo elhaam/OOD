@@ -7,12 +7,7 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import ResourceManagment.PhysicalResource;
-
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class PhysicalUI {
 
@@ -20,7 +15,6 @@ public class PhysicalUI {
 	private JTextField textFieldNo;
 	private JTextField textFieldtype;
 	private JTextField textFieldmodel;
-	PhysicalResource physicalResource;
 
 	/**
 	 * Launch the application.
@@ -91,18 +85,7 @@ public class PhysicalUI {
 		textFieldmodel.setColumns(10);
 		
 		JButton button = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				create(textFieldNo,textFieldtype,textFieldmodel);
-			}
-		});
 		button.setBounds(29, 209, 89, 23);
 		panel.add(button);
-	}
-
-	protected void create(JTextField textFieldNo2, JTextField textFieldtype2, JTextField textFieldmodel2) {
-		// TODO Auto-generated method stub
-		this.physicalResource=new PhysicalResource(Integer.parseInt(textFieldNo2.getText()), textFieldtype2.toString(), textFieldmodel2.toString());
-		
 	}
 }
