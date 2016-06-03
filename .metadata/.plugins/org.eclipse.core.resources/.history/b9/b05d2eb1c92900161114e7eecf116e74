@@ -21,7 +21,7 @@ public class InformationalResource extends Resource {
 	public InformationalResource(String n,String f,String c,String s,String ca,int no) {
 		super(ResourceType.INFORMATIONAL);
 		// TODO Auto-generated constructor stub
-		this.type=InformationType.INDIRECT;
+		this.type=InformationType.DIRECT;
 		this.name=n;
 		this.format=f;
 		this.createDate=c;

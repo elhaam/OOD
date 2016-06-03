@@ -249,12 +249,12 @@ public class InformationalUI {
 		
 		
 	}
-	protected void createIndirect(JTextField name22, JTextField no22, JTextField createDate22, JTextField format22, JTextField subcategory22, JTextField categoty2) {
+	protected void createIndirect() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	protected void createDirect(JTextField name3, JTextField no3, JTextField createDate3, JTextField format3, JTextField subcategory3) {
+	protected void createDirect() {
 		// TODO Auto-generated method stub
 		
 	}

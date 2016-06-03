@@ -241,7 +241,7 @@ public class InformationalUI {
 		JButton cont2 = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
 		cont2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				createIndirect(name2,No2,createDate2,format2,subcategory2,categoty);
+				createIndirect(name2,No2,createDate2,format2,subcategory);
 			}
 		});
 		cont2.setBounds(33, 293, 89, 23);
@@ -249,12 +249,12 @@ public class InformationalUI {
 		
 		
 	}
-	protected void createIndirect(JTextField name22, JTextField no22, JTextField createDate22, JTextField format22, JTextField subcategory22, JTextField categoty2) {
+	protected void createIndirect() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	protected void createDirect(JTextField name3, JTextField no3, JTextField createDate3, JTextField format3, JTextField subcategory3) {
+	protected void createDirect() {
 		// TODO Auto-generated method stub
 		
 	}
