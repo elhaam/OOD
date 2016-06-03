@@ -258,8 +258,7 @@ public class InformationalUI {
 
 	protected void createDirect(JTextField name3, JTextField no3, JTextField createDate3, JTextField format3, JTextField subcategory3) {
 		// TODO Auto-generated method stub
-		this.informationalResource=new InformationalResource(name3.toString(), format3.toString(),
-				createDate3.toString(), subcategory3.toString(), Integer.parseInt(no3.getText()));
+		this.informationalResource=new InformationalResource(n, f, c, s, no);
 	}
 
 	public JLabel getLblNewLabel() {
