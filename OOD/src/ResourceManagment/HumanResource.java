@@ -8,8 +8,9 @@ public class HumanResource extends Resource{
 	private int employeeNo;
 	private String StartDate;
 	Job job;
+	Subsystem subsystem;
 	
-	public HumanResource(String f,String l,int m, int e, String s,Job j) {
+	public HumanResource(String f,String l,int m, int e, String s,Job j,Subsystem sub) {
 		super(ResourceType.HUMAN);
 		this.firstName=f;
 		this.lastName=l;
@@ -17,6 +18,7 @@ public class HumanResource extends Resource{
 		this.employeeNo=e;
 		this.StartDate=s;
 		this.job=j;
+		this.subsystem=sub;
 		
 	}
 
