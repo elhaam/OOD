@@ -1,9 +1,0 @@
-package ResourceManagment;
-
-public class PhysicalResource {
-
-	public PhysicalResource() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
