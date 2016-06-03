@@ -12,17 +12,17 @@ import javax.swing.JButton;
 public class HumanUI {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField textFieldName;
+	private JTextField textFieldLastName;
+	private JTextField textFieldMelliNo;
+	private JTextField textFieldEmployeeNo;
+	private JTextField textFieldJob;
+	private JTextField textFieldStartDate;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void showHumanUI() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -79,39 +79,39 @@ public class HumanUI {
 		label_4.setBounds(306, 269, 88, 14);
 		frame.getContentPane().add(label_4);
 		
-		textField = new JTextField();
-		textField.setBounds(160, 52, 86, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		textFieldName = new JTextField();
+		textFieldName.setBounds(160, 52, 86, 20);
+		frame.getContentPane().add(textFieldName);
+		textFieldName.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(160, 95, 86, 20);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		textFieldLastName = new JTextField();
+		textFieldLastName.setBounds(160, 95, 86, 20);
+		frame.getContentPane().add(textFieldLastName);
+		textFieldLastName.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(160, 132, 86, 20);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		textFieldMelliNo = new JTextField();
+		textFieldMelliNo.setBounds(160, 132, 86, 20);
+		frame.getContentPane().add(textFieldMelliNo);
+		textFieldMelliNo.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(162, 175, 86, 20);
-		frame.getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		textFieldEmployeeNo = new JTextField();
+		textFieldEmployeeNo.setBounds(162, 175, 86, 20);
+		frame.getContentPane().add(textFieldEmployeeNo);
+		textFieldEmployeeNo.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(162, 219, 86, 20);
-		frame.getContentPane().add(textField_4);
-		textField_4.setColumns(10);
+		textFieldJob = new JTextField();
+		textFieldJob.setBounds(162, 219, 86, 20);
+		frame.getContentPane().add(textFieldJob);
+		textFieldJob.setColumns(10);
 		
 		JButton button = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
 		button.setBounds(46, 290, 89, 23);
 		frame.getContentPane().add(button);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(162, 266, 86, 20);
-		frame.getContentPane().add(textField_5);
-		textField_5.setColumns(10);
+		textFieldStartDate = new JTextField();
+		textFieldStartDate.setBounds(162, 266, 86, 20);
+		frame.getContentPane().add(textFieldStartDate);
+		textFieldStartDate.setColumns(10);
 	}
 
 }
