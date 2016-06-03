@@ -13,7 +13,6 @@ import ResourceManagment.HumanResource;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
 
 public class HumanUI {
 
@@ -22,6 +21,7 @@ public class HumanUI {
 	private JTextField textFieldLastName;
 	private JTextField textFieldMelliNo;
 	private JTextField textFieldEmployeeNo;
+	private JTextField textFieldJob;
 	private JTextField textFieldStartDate;
 	HumanResource humanResource;
 
@@ -53,7 +53,7 @@ public class HumanUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 481);
+		frame.setBounds(100, 100, 450, 375);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -78,11 +78,11 @@ public class HumanUI {
 		frame.getContentPane().add(label_2);
 		
 		JLabel label_3 = new JLabel("\u0633\u0645\u062A:");
-		label_3.setBounds(335, 269, 46, 14);
+		label_3.setBounds(306, 222, 46, 14);
 		frame.getContentPane().add(label_3);
 		
 		JLabel label_4 = new JLabel("\u062A\u0627\u0631\u06CC\u062E \u0634\u0631\u0648\u0639 \u06A9\u0627\u0631:");
-		label_4.setBounds(306, 222, 88, 14);
+		label_4.setBounds(306, 269, 88, 14);
 		frame.getContentPane().add(label_4);
 		
 		textFieldName = new JTextField();
@@ -105,9 +105,14 @@ public class HumanUI {
 		frame.getContentPane().add(textFieldEmployeeNo);
 		textFieldEmployeeNo.setColumns(10);
 		
+		textFieldJob = new JTextField();
+		textFieldJob.setBounds(162, 219, 86, 20);
+		frame.getContentPane().add(textFieldJob);
+		textFieldJob.setColumns(10);
+		
 		
 		textFieldStartDate = new JTextField();
-		textFieldStartDate.setBounds(162, 219, 86, 20);
+		textFieldStartDate.setBounds(162, 266, 86, 20);
 		frame.getContentPane().add(textFieldStartDate);
 		textFieldStartDate.setColumns(10);
 		JButton button = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
@@ -116,36 +121,8 @@ public class HumanUI {
 				create(textFieldName ,textFieldLastName,textFieldMelliNo,textFieldEmployeeNo,textFieldStartDate,textFieldJob);
 			}
 		});
-		button.setBounds(38, 397, 89, 23);
+		button.setBounds(46, 290, 89, 23);
 		frame.getContentPane().add(button);
-		
-		JRadioButton middleManager = new JRadioButton("\u0645\u062F\u06CC\u0631 \u0645\u06CC\u0627\u0646\u06CC");
-		middleManager.setBounds(186, 265, 109, 23);
-		frame.getContentPane().add(middleManager);
-		
-		JRadioButton employee = new JRadioButton("\u06A9\u0627\u0631\u0645\u0646\u062F");
-		employee.setBounds(115, 265, 109, 23);
-		frame.getContentPane().add(employee);
-		
-		JLabel label_5 = new JLabel("\u0632\u06CC\u0631 \u0628\u062E\u0634:");
-		label_5.setBounds(335, 314, 46, 14);
-		frame.getContentPane().add(label_5);
-		
-		JRadioButton requirmentEngineering = new JRadioButton("\u0645\u0647\u0646\u062F\u0633\u06CC \u0646\u06CC\u0627\u0632\u0645\u0646\u062F\u06CC \u0647\u0627");
-		requirmentEngineering.setBounds(186, 310, 143, 23);
-		frame.getContentPane().add(requirmentEngineering);
-		
-		JRadioButton analysis = new JRadioButton("\u062A\u062D\u0644\u06CC\u0644");
-		analysis.setBounds(58, 310, 109, 23);
-		frame.getContentPane().add(analysis);
-		
-		JRadioButton design = new JRadioButton("\u0637\u0631\u0627\u062D\u06CC");
-		design.setBounds(58, 353, 109, 23);
-		frame.getContentPane().add(design);
-		
-		JRadioButton developmentMaintainance = new JRadioButton("\u067E\u06CC\u0627\u062F\u0647 \u0633\u0627\u0632\u06CC \u0648 \u0646\u06AF\u0647\u062F\u0627\u0631\u06CC");
-		developmentMaintainance.setBounds(186, 353, 128, 23);
-		frame.getContentPane().add(developmentMaintainance);
 		
 	}
 
@@ -153,7 +130,8 @@ public class HumanUI {
 			JTextField textFieldEmployeeNo2, JTextField textFieldStartDate2, JTextField textFieldJob2) {
 		// TODO Auto-generated method stub
 		
-		//this.humanResource=new HumanResource(textFieldName2.toString(), textFieldLastName2.toString(), Integer.parseInt(textFieldMelliNo2.getText()),
-			//	Integer.parseInt(textFieldEmployeeNo2.getText()), textFieldStartDate2.toString(), textFieldJob2.toString());
+		this.humanResource=new HumanResource(textFieldName2.toString(), textFieldLastName2.toString(), Integer.parseInt(textFieldMelliNo2.getText()),
+				Integer.parseInt(textFieldEmployeeNo2.getText()), textFieldStartDate2.toString(), textFieldJob2.toString());
 	}
+
 }

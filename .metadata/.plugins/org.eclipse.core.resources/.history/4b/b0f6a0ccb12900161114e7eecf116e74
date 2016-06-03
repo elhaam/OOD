@@ -153,7 +153,7 @@ public class HumanUI {
 			JTextField textFieldEmployeeNo2, JTextField textFieldStartDate2, JTextField textFieldJob2) {
 		// TODO Auto-generated method stub
 		
-		//this.humanResource=new HumanResource(textFieldName2.toString(), textFieldLastName2.toString(), Integer.parseInt(textFieldMelliNo2.getText()),
-			//	Integer.parseInt(textFieldEmployeeNo2.getText()), textFieldStartDate2.toString(), textFieldJob2.toString());
+		this.humanResource=new HumanResource(textFieldName2.toString(), textFieldLastName2.toString(), Integer.parseInt(textFieldMelliNo2.getText()),
+				Integer.parseInt(textFieldEmployeeNo2.getText()), textFieldStartDate2.toString(), textFieldJob2.toString());
 	}
 }
