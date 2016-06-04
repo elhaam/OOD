@@ -19,13 +19,9 @@ public class FinancialResource extends Resource{
 		this.accountNo=n;
 		this.accountOwner=a;
 	}
-	public FinancialResource(int a,int c,String o,String ad) {
+	public FinancialResource(int a,intc c,String o,String ad) {
 		super(ResourceType.FINANCIAL);
 		// TODO Auto-generated constructor stub
 		this.type=FinancialType.MELK;
-		this.area=a;
-		this.cost=c;
-		this.owner=o;
-		this.address=ad;
 	}
 }

@@ -1,0 +1,5 @@
+package ResourceManagment;
+
+public enum FinancialType {
+
+}
