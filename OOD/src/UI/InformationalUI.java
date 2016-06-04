@@ -26,7 +26,7 @@ public class InformationalUI {
 	private JTextField createDate;
 	private JTextField format;
 	private JTextField subcategory;
-	private JTextField Isubcategory;
+	private JTextField subcategory2;
 	private JTextField format2;
 	private JTextField createDate2;
 	private JTextField No2;
@@ -165,10 +165,10 @@ public class InformationalUI {
 		label_6.setBounds(275, 284, 164, 14);
 		indirect.add(label_6);
 		
-		Isubcategory = new JTextField();
-		Isubcategory.setColumns(10);
-		Isubcategory.setBounds(165, 281, 86, 20);
-		indirect.add(Isubcategory);
+		subcategory2 = new JTextField();
+		subcategory2.setColumns(10);
+		subcategory2.setBounds(165, 281, 86, 20);
+		indirect.add(subcategory2);
 		
 		format2 = new JTextField();
 		format2.setColumns(10);
@@ -225,7 +225,7 @@ public class InformationalUI {
 		JButton button_1 = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				create();
+				createDirect(name,No,createDate,format,subcategory);
 			}
 
 			
@@ -241,6 +241,7 @@ public class InformationalUI {
 		JButton cont2 = new JButton("\u062B\u0628\u062A \u0645\u0646\u0628\u0639");
 		cont2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				createIndirect(name2,No2,createDate2,format2,subcategory2,categoty);
 			}
 		});
 		cont2.setBounds(33, 293, 89, 23);
@@ -248,11 +249,21 @@ public class InformationalUI {
 		
 		
 	}
+	protected void createIndirect(JTextField name22, JTextField no22, JTextField createDate22, JTextField format22, JTextField subcategory22, JTextField categoty2) {
+		// TODO Auto-generated method stub
+		this.informationalResource=new InformationalResource(name22.toString(), format22.toString(),
+				createDate22.toString(), subcategory22.toString(), categoty2.toString(), Integer.parseInt(no22.getText()));
+		
+	}
+
+	protected void createDirect(JTextField name3, JTextField no3, JTextField createDate3, JTextField format3, JTextField subcategory3) {
+		// TODO Auto-generated method stub
+		this.informationalResource=new InformationalResource(name3.toString(), format3.toString(),
+				createDate3.toString(), subcategory3.toString(), Integer.parseInt(no3.getText()));
+	}
+
 	public JLabel getLblNewLabel() {
 		return lblNewLabel;
 	}
-	private void create() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
