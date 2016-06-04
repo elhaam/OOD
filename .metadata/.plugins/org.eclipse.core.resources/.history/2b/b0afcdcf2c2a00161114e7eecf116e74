@@ -1,9 +1,9 @@
 package ResourceManagment;
 
 public class FinancialResource extends Resource{
-	private String bank;
-	private int accountNo;
-	private String accountOwner;
+	private String bank=null;
+	private int accountNo=(Integer) null;
+	private String accountOwner=null;
 	FinancialType type;
 	private int area;
 	private int cost;
@@ -23,9 +23,6 @@ public class FinancialResource extends Resource{
 		super(ResourceType.FINANCIAL);
 		// TODO Auto-generated constructor stub
 		this.type=FinancialType.MELK;
-		this.area=a;
-		this.cost=c;
-		this.owner=o;
-		this.address=ad;
+		
 	}
 }
