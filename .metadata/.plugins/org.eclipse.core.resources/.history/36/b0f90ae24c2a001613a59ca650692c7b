@@ -1,0 +1,13 @@
+package User;
+
+import ResourceManagment.Job;
+import ResourceManagment.Subsystem;
+
+public class Employee extends User {
+
+	public Employee(String fname, String lname, int melliNo, int employeeNo, String start, Job job, Subsystem sub) {
+		super(fname, lname, melliNo, employeeNo, start, job, sub);
+		// TODO Auto-generated constructor stub
+	}
+
+}

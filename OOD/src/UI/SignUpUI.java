@@ -42,6 +42,19 @@ public class SignUpUI extends JFrame {
 			}
 		});
 	}
+	
+	public static void newScreen() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SignUpUI window = new SignUpUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 
 	/**
@@ -91,7 +104,7 @@ public class SignUpUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
 				
-				SuccessUI s = new SuccessUI();
+				LoginUI s = new LoginUI();
 				s.newScreen();
 			}
 		});

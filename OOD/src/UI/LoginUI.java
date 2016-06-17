@@ -38,7 +38,21 @@ public class LoginUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					LoginUI frame = new LoginUI();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+	
+	
+	public static void newScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -50,6 +64,7 @@ public class LoginUI extends JFrame {
 			}
 		});
 	}
+	
 	
 	public void close() {
 		WindowEvent w = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
