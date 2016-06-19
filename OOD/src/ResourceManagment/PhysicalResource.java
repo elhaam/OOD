@@ -1,17 +1,13 @@
 package ResourceManagment;
 
-
 public class PhysicalResource extends Resource{
-	private int propertyNo;
+	private int No;
 	private String type;
 	private String modelName;
-	public PhysicalResource(int p,String t,String m) {
-		// TODO Auto-generated constructor stub
+	public PhysicalResource(int n,String t,String m){
 		super(ResourceType.PHYSICAL);
+		this.No=n;
 		this.modelName=m;
 		this.type=t;
-		this.propertyNo=p;
-		
 	}
-
 }

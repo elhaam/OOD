@@ -1,10 +1,8 @@
 package ResourceManagment;
 
 public enum ResourceType {
-	
-		HUMAN,
-		PHYSICAL,
-		FINANCIAL,
-		INFORMATIONAL;
-	
+	HUMAN,
+	PHYSICAL,
+	INFORMATIONAL,
+	FINANCIAL;
 }

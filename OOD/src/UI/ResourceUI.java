@@ -83,18 +83,25 @@ public class ResourceUI {
 				
 					PhysicalUI prui=new PhysicalUI();
 					prui.showPhysicalUI();
-					frame.dispose();
+					
 				}
 				else if(finanRadButton.isSelected()){
+					FinancialUI fiui=new FinancialUI();
+					fiui.showFinancialUI();
 					
 				}
 				else if(humRadButton.isSelected()){
-					
+					HumanUI huui=new HumanUI();
+					huui.showHumanUI();
+				
 				}
 				else if(infoRadButton.isSelected()){
+					InformationalUI inui=new InformationalUI();
+					inui.showInformationalUI();
 					
 				}
 				//else show window error
+				frame.dispose();
 			}
 		});
 		cont.setBounds(39, 208, 89, 23);
