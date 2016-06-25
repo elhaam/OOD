@@ -22,6 +22,6 @@ public class  BusyResource {
 	public void assignResource(){};
 	public void registerBusyResource(){};
 	public void ReleasingResource(){};
-	public void information(){};
+	Public void information(){};
 
 }

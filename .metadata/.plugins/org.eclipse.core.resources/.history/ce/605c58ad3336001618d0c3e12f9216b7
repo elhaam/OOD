@@ -1,0 +1,10 @@
+package distributing;
+
+public class PhysialBusyResource {
+	private Integer count;
+	
+	 public physicalBusyResource(Integer c){
+		 
+	 }
+
+}

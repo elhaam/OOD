@@ -18,10 +18,5 @@ public class  BusyResource {
 		this.AssignDate=AD;
 		
 	}
-	
-	public void assignResource(){};
-	public void registerBusyResource(){};
-	public void ReleasingResource(){};
-	public void information(){};
 
 }
