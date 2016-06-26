@@ -14,4 +14,8 @@
 <fullyQualifiedTypeName name="ResourceManagment.FinancialType"/>
 <fullyQualifiedTypeName name="ResourceManagment.FinancialResource"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="distributing.Project"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.annotation.Resource"/>
+<fullyQualifiedTypeName name="ResourceManagment.Resource"/>
 </qualifiedTypeNameHistroy>
