@@ -1,5 +1,5 @@
 package Report;
 
-public class CyclicReport {
+public class CyclicReport extends Report {
 
 }
