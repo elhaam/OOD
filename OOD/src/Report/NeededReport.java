@@ -1,5 +1,5 @@
 package Report;
 
-public class NeededReport {
+public class NeededReport extends Report {
 
 }
