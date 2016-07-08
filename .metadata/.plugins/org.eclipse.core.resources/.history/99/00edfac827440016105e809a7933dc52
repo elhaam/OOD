@@ -1,0 +1,20 @@
+package DB;
+
+import ir.sharif.db.PCContract.BaseColumns;
+
+public class Tables {
+
+	public static abstract class BaseColumns {
+		public static final String _ID = "id";
+	}
+	
+	public static abstract class HumanResource extends BaseColumns {
+		public static final String TABLE_NAME = "human-resource";
+		public static final String COLUMN_NAME_TITLE = "title";
+		public static final String COLUMN_NAME_DESCRIPTION = "description";
+        public static final String COLUMN_NAME_VOTE = "vote";
+        public static final String COLUMN_NAME_CREATOR = "creator";
+        public static final String COLUMN_NAME_CREATE_DATE = "create_date";
+        public static final String COLUMN_KNOWLEDGE_STATUS = "knowledge_status";
+	}
+}

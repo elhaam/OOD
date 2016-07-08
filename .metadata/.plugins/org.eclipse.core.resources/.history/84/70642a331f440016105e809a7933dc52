@@ -1,0 +1,92 @@
+package DB;
+import java.sql.*;
+import javax.sql.DataSource;
+
+import ir.sharif.db.DBHelper;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+import static java.lang.annotation.ElementType.*;
+import static java.lang.annotation.RetentionPolicy.*;
+
+import java.io.File;
+import java.io.IOException;
+
+
+
+public class Driver {
+	
+	private static Driver self = null;
+	private File dbDescriptor = null;
+	private Connection connect = null;
+
+	public static final String TAG_DATABASE = "database";
+	public static final String TAG_TABLE = "table";
+	public static final String TAG_CREATE_SUPER_USER = "creat_user";
+	public static final String TAG_GRANT_SUPER_USER = "grant_user";
+
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/";
+	private static final String DATABASE_NAME = "simoorgh-managment-system";
+	private static final String USER_NAME = "root";
+	private static final String PASSWORD = "";
+	private static final String COMMA_SEP = " ,\n ";
+
+	public static final String SQL_CREATE_DATABASE = "CREATE DATABASE "
+			+ DATABASE_NAME + ";";
+
+	public static final String SQL_CHANGE_DATABASE_CHARSET = "ALTER DATABASE "
+			+ DATABASE_NAME + " CHARACTER SET utf8 COLLATE utf8_general_ci;";
+
+	public static final String SQL_CHANGE_TABLE_CAHRSET = "ALTER TABLE %s CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;";
+
+	public static final String SQL_CREATE_USER = "CREATE USER " + USER_NAME
+			+ " IDENTIFIED BY '" + PASSWORD + "';";
+
+	public static final String SQL_GRANT_USER = "GRANT USAGE ON *.* TO "
+			+ USER_NAME + "@localhost IDENTIFIED BY '" + PASSWORD + "';"
+			+ "GRANT ALL PRIVILEGES ON " + DATABASE_NAME + ".* TO " + USER_NAME
+			+ "@localhost;";
+
+	public Driver(){
+//		dbDescriptor = new File("db-config.txt");
+//		try {
+//			if (!dbDescriptor.exists()) {
+//				dbDescriptor.createNewFile();
+//			}
+//
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
+		try {
+			// This will load the MySQL driver, each DB has its own driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// Setup the connection with the DB
+			connect = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// Create Database
+		if (!contains(TAG_DATABASE)) {
+			System.out.println("Create DataBase: " + DATABASE_NAME);
+			System.out.println(SQL_CREATE_DATABASE);
+			if (exeSQL(SQL_CREATE_DATABASE)) {
+				exeSQL(SQL_CHANGE_DATABASE_CHARSET);
+				add(TAG_DATABASE, DATABASE_NAME);
+			}
+		}
+
+		open();
+		createOrUpdateTables();
+	}
+	
+	public static void main(String[] args) {
+	}
+}
+
+

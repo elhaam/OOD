@@ -1,0 +1,37 @@
+package DB;
+import java.sql.*;
+import javax.sql.DataSource;
+
+import ir.sharif.db.DBHelper;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+import static java.lang.annotation.ElementType.*;
+import static java.lang.annotation.RetentionPolicy.*;
+
+import java.io.File;
+
+
+
+public class Driver {
+	
+	private static Driver self = null;
+	private File dbDescriptor = null;
+	private Connection connect = null;
+
+	public static final String TAG_DATABASE = "database";
+	public static final String TAG_TABLE = "table";
+	public static final String TAG_CREATE_SUPER_USER = "creat_user";
+	public static final String TAG_GRANT_SUPER_USER = "grant_user";
+
+	private static final String DB_URL = "jdbc:mysql://localhost/";
+	private static final String DATABASE_NAME = "knowledge_management_system";
+	private static final String USER_NAME = "root";
+	private static final String PASSWORD = "";
+
+	
+	public static void main(String[] args) {
+	}
+}
+
+

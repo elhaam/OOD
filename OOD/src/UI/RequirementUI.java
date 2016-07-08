@@ -11,7 +11,7 @@ import java.awt.Panel;
 import java.awt.Label;
 import java.awt.Font;
 import javax.swing.JLabel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
+//import com.jgoodies.forms.factories.DefaultComponentFactory;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
 import java.awt.GridBagLayout;
