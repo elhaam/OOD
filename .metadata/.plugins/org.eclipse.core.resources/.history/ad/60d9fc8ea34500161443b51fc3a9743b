@@ -62,11 +62,11 @@ public class Driver {
 	public void insert(String tableName,Object...args ) {
 		
 		try{
-		String command = "INSERT INTO " + "`simoorgh-managment-system`.`"+tableName +"`" + " VALUES (";
+		String command = "INSERT INTO " + "`simoorgh-managment-system`."+tableName +"`" + " VALUES (";
 		for (int i = 0; i < args.length-1; i++)
 			command += " ?,";
 		command += "?);";
-		System.out.println(command);
+
 		// PreparedStatements can use variables and are more efficient
 		PreparedStatement statment = connect.prepareStatement(command);
 

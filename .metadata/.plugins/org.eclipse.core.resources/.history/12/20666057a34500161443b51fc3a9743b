@@ -38,7 +38,7 @@ public class test {
 //			//String command2="CREATE TABLE TEST.FIRST;";
 //			//System.out.println(command2);
 //			statment.executeUpdate();
-			String command ="INSERT INTO `simoorgh-managment-system`.`human-resource` VALUES ('fateme', 'sadeghi', 9876, 533, 'EMPLOYEE', 'ANALYSIS','0982');";
+			String command ="INSERT INTO `simoorgh-managment-system`.`human-resource` VALUES ('jkhjh', 'uhi', 8768, 875, 'EMPLOYEE', 'ANALYSIS','0986');";
 			Statement st=connect.createStatement();
 			st.executeUpdate(command);
 		}

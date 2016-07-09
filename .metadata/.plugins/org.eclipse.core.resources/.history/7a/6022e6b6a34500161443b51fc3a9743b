@@ -68,13 +68,13 @@ public class Driver {
 		command += "?);";
 		System.out.println(command);
 		// PreparedStatements can use variables and are more efficient
-		PreparedStatement statment = connect.prepareStatement(command);
-
-		for (int i = 1; i <= args.length; i++)
-			statment.setObject(i, args[i - 1]);
-
-		System.out.println(statment.toString());
-		statment.executeUpdate();
+//		PreparedStatement statment = connect.prepareStatement(command);
+//
+//		for (int i = 1; i <= args.length; i++)
+//			statment.setObject(i, args[i - 1]);
+//
+//		System.out.println(statment.toString());
+//		statment.executeUpdate();
 
 
 
