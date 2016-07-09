@@ -1,5 +1,7 @@
 package distributing;
 
+import java.awt.List;
+
 import ResourceManagment.Job;
 import ResourceManagment.Resource;
 import ResourceManagment.ResourceType;
@@ -12,6 +14,7 @@ public class  BusyResource {
 	private String Section;
 	private String Project;
 	
+	
 	public BusyResource (String AD) {
 		
 	
@@ -19,7 +22,10 @@ public class  BusyResource {
 		
 	}
 	
-	public void assignResource(){};
+	public void assignResource( Resource res, Requirement req){
+		
+		
+	};
 	public void registerBusyResource(){};
 	public void ReleasingResource(){};
 	public void information(){};
