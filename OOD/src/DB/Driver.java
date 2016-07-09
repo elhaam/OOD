@@ -21,6 +21,7 @@ public class Driver {
 	private static Driver self = null;
 	private File dbDescriptor = null;
 	private Connection connect = null;
+	public static long lastID;
 
 	public static final String TAG_DATABASE = "database";
 	public static final String TAG_TABLE = "table";
@@ -60,33 +61,36 @@ public class Driver {
 
 
 	public void insert(String tableName,Object...args ) {
-		
+
 		try{
-		String command = "INSERT INTO " + "`simoorgh-managment-system`.`"+tableName +"`" + " VALUES (";
-		for (int i = 0; i < args.length-1; i++)
-			command += " ?,";
-		command += "?);";
-		System.out.println(command);
-		// PreparedStatements can use variables and are more efficient
-		PreparedStatement statment = connect.prepareStatement(command);
+			String command = "INSERT INTO " + "`simoorgh-managment-system`.`"+tableName +"`" + " VALUES (";
+			for (int i = 0; i < args.length-1; i++)
+				command += " ?,";
+			command += "?);";
+			System.out.println(command);
+			// PreparedStatements can use variables and are more efficient
+			PreparedStatement statment = connect.prepareStatement(command);
 
-		for (int i = 1; i <= args.length; i++)
-			statment.setObject(i, args[i - 1]);
+			for (int i = 1; i <= args.length; i++)
+				statment.setObject(i, args[i - 1]);
 
-		System.out.println(statment.toString());
-		statment.executeUpdate();
+			System.out.println(statment.toString());
+			statment.executeUpdate();
+			
 
 
 
-	} 
-	catch(Exception e)
-	{
-		e.printStackTrace();
+		} 
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
-	//catch (Exception e) {
-		//e.printStackTrace();
-	//}
-}
+	public long getLastID() {
+		// TODO Auto-generated method stub
+		return lastID;
+	}
 }
 
 

@@ -4,7 +4,7 @@ import DB.Driver;
 
 
 public class HumanResource extends Resource{
-	public static  HumanResource instance;
+	
 	public  String firstName;
 	public String lastName;
 	public int melliNo;
@@ -12,7 +12,7 @@ public class HumanResource extends Resource{
 	public String StartDate;
 	public Job job;
 	public Subsystem subsystem;
-	public  static Driver db;
+	
 	
 	public HumanResource(String f,String l,int m, int e, String s,Job j,Subsystem sub) {
 		super(ResourceType.HUMAN);
@@ -22,22 +22,14 @@ public class HumanResource extends Resource{
 		this.employeeNo=e;
 		this.StartDate=s;
 		this.job=j;
-		this.subsystem=sub;
-		db=new Driver();
-		
+		this.subsystem=sub;		
 		
 	}
 	
-	public static HumanResource getInstance() {
-		
-		return instance;
-	}
 	
 	public void addResource(){
-		
-    	db.insert("human-resource",this.firstName,this.lastName,
-    			this.melliNo,this.employeeNo,this.job.toString(),this.subsystem.toString(),this.StartDate);
-		
+	  	db.insert("human-resource",this.firstName,this.lastName,
+    			this.melliNo,this.employeeNo,this.job.toString(),this.subsystem.toString(),this.StartDate);	
 	}
 	
 	

@@ -251,15 +251,17 @@ public class InformationalUI {
 	}
 	protected void createIndirect(JTextField name22, JTextField no22, JTextField createDate22, JTextField format22, JTextField subcategory22, JTextField categoty2) {
 		// TODO Auto-generated method stub
-		this.informationalResource=new InformationalResource(name22.toString(), format22.toString(),
-				createDate22.toString(), subcategory22.toString(), categoty2.toString(), Integer.parseInt(no22.getText()));
+		this.informationalResource=new InformationalResource(name22.getText(), format22.getText(),
+				createDate22.getText(), subcategory22.getText(), categoty2.getText(), Integer.parseInt(no22.getText()));
+		informationalResource.addResource();
 		
 	}
 
 	protected void createDirect(JTextField name3, JTextField no3, JTextField createDate3, JTextField format3, JTextField subcategory3) {
 		// TODO Auto-generated method stub
-		this.informationalResource=new InformationalResource(name3.toString(), format3.toString(),
-				createDate3.toString(), subcategory3.toString(), Integer.parseInt(no3.getText()));
+		this.informationalResource=new InformationalResource(name3.getText(), format3.getText(),
+				createDate3.getText(), subcategory3.getText(), Integer.parseInt(no3.getText()));
+		informationalResource.addResource();
 	}
 
 	public JLabel getLblNewLabel() {

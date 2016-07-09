@@ -102,7 +102,8 @@ public class PhysicalUI {
 
 	protected void create(JTextField textFieldNo2, JTextField textFieldtype2, JTextField textFieldmodel2) {
 		// TODO Auto-generated method stub
-		this.physicalResource=new PhysicalResource(Integer.parseInt(textFieldNo2.getText()), textFieldtype2.toString(), textFieldmodel2.toString());
+		this.physicalResource=new PhysicalResource(Integer.parseInt(textFieldNo2.getText()), textFieldtype2.getText(), textFieldmodel2.getText());
+		physicalResource.addResource();
 		
 	}
 }

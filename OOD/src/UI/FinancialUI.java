@@ -195,14 +195,17 @@ public class FinancialUI {
 	protected void createBudget(JTextField textFieldbank2, JTextField textFieldaccountNo2,
 			JTextField textFieldaccountowner2) {
 		// TODO Auto-generated method stubh
-		this.financialResource=new FinancialResource(textFieldbank2.toString(), textFieldaccountowner2.toString(), Integer.parseInt(textFieldaccountNo2.getText()));
+		this.financialResource=new FinancialResource(textFieldbank2.getText(), textFieldaccountowner2.getText(), Integer.parseInt(textFieldaccountNo2.getText()));
+		financialResource.addResource();
+	
 		
 	}
 
 	protected void createMelk(JTextField textFieldarea2, JTextField textFieldcost2, JTextField textFieldowner2,
 			JTextArea textAdress) {
 		// TODO Auto-generated method stub
-		this.financialResource=new FinancialResource(Integer.parseInt(textFieldarea2.getText()), Integer.parseInt(textFieldcost2.getText()), textFieldowner2.toString(), textAdress.toString());
+		this.financialResource=new FinancialResource(Integer.parseInt(textFieldarea2.getText()), Integer.parseInt(textFieldcost2.getText()), textFieldowner2.getText(), textAdress.getText());
+		financialResource.addResource();
 		
 	}
 }

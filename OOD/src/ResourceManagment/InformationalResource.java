@@ -7,7 +7,7 @@ public class InformationalResource extends Resource {
 	private String createDate;
 	private int no;
 	private String subcategory;
-	private String category=null;
+	private String category;
 	public InformationalResource(String n,String f,String c,String s,int no) {
 		super(ResourceType.INFORMATIONAL);
 		// TODO Auto-generated constructor stub
@@ -28,5 +28,9 @@ public class InformationalResource extends Resource {
 		this.subcategory=s;
 		this.category=ca;
 		this.no=no;
+	}
+	public void addResource(){
+	  	db.insert("informational-resource",this.name,this.no,
+    			this.createDate,this.format,this.subcategory,this.category,this.type.toString());	
 	}
 }

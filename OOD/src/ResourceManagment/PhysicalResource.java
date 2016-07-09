@@ -10,4 +10,9 @@ public class PhysicalResource extends Resource{
 		this.modelName=m;
 		this.type=t;
 	}
+	
+	public void addResource(){
+	  	db.insert("physical-resource",this.No,this.type,this.modelName);	
+	}
+	
 }

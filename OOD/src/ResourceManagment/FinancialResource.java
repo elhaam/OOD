@@ -9,7 +9,8 @@ public class FinancialResource extends Resource{
 	private int cost;
 	private String owner;
 	private String address;
-
+	public int i=0;
+	public int j=0;
 	
 	public FinancialResource(String b,String a,int n) {
 		super(ResourceType.FINANCIAL);
@@ -28,4 +29,20 @@ public class FinancialResource extends Resource{
 		this.owner=o;
 		this.address=ad;
 	}
+	public void addResource(){
+		j++;
+		if(type == FinancialType.BUDGET){
+		    System.out.println("budget");
+			db.insert("financial-resource-budget", this.accountNo,this.bank,this.accountOwner);
+		//	db.insert("financial-resource",j,null,this.accountNo);
+		}
+		else{
+			i++;
+			System.out.println("melk");
+			//db.insert("financial-resource-melk", this.owner,this.cost,this.area,this.address,i);
+			db.insert("financial-resource",j,i,null);
+		}
+			
+	}
+	
 }
