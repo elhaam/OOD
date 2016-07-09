@@ -1,0 +1,39 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class test {
+	private static Connection connect;
+
+	public static final String TAG_DATABASE = "database";
+	public static final String TAG_TABLE = "table";
+	public static final String TAG_CREATE_SUPER_USER = "creat_user";
+
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/";
+	private static final String DATABASE_NAME = "simoorgh-managment-system";
+	private static final String USER_NAME = "root";
+	private static final String PASSWORD = "";
+	private static final String COMMA_SEP = " ,\n ";
+
+	
+	public static void main(String args []){
+		try{
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			connect = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+			String command="CREATE DATABASE TEST;";
+			//String command ="INSERT INTO simoorgh-managment-system.human-resource VALUES (uui,uyf,7654,6543,MIDDLEMANAGER,REQUIREMENTENGINEERING,543)";
+			Statement statment = connect.createStatement();
+			System.out.println(command);
+			statment.executeUpdate(command);
+			String command2="CREATE TABLE TEST.FIRST;";
+		}
+		
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+}

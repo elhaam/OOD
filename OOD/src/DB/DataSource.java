@@ -2,17 +2,16 @@ package DB;
 
 import java.text.SimpleDateFormat;
 
+import ResourceManagment.HumanResource;
+
+
 public class DataSource {
 	private static DataSource instance;
 	private static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	private Driver db;
 
-	private DataSource() {
+	public DataSource() {
 		db = Driver.getInstance();
-	}
-
-	public void close() {
-		db.close();
 	}
 
 	public static DataSource getInstance() {
@@ -21,4 +20,17 @@ public class DataSource {
 		return instance;
 	}
 
+	public void addHumanResource(HumanResource hr) {
+		// TODO Auto-generated method stub
+		System.out.println("datasource");
+		//db.insertHumanResource(hr);
+		System.out.println("datasource finished");
+			
+
+		
+		
+		
+	}
+
+	
 }

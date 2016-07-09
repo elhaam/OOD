@@ -2,7 +2,10 @@ package DB;
 import java.sql.*;
 import java.util.Scanner;
 
-import DB.Tables.*;
+
+import ResourceManagment.HumanResource;
+import ResourceManagment.Job;
+import ResourceManagment.Subsystem;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -29,107 +32,78 @@ public class Driver {
 	private static final String PASSWORD = "";
 	private static final String COMMA_SEP = " ,\n ";
 
-	
+
 
 	public static Driver getInstance() {
 		if (self == null) {
+			System.out.println("create new driver");
 			return new Driver();
 		}
-
+		System.out.println("the driver is exist");
 		return self;
 	}
 	public Driver(){
-		//		dbDescriptor = new File("db-config.txt");
-		//		try {
-		//			if (!dbDescriptor.exists()) {
-		//				dbDescriptor.createNewFile();
-		//			}
-		//
-		//		} catch (IOException e) {
-		//			// TODO Auto-generated catch block
-		//			e.printStackTrace();
-		//		}
 
 		try {
-			// This will load the MySQL driver, each DB has its own driver
 			Class.forName("com.mysql.jdbc.Driver");
-
 			// Setup the connection with the DB
-			connect = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
-
+			connect = DriverManager.getConnection(DB_URL+DATABASE_NAME, USER_NAME, PASSWORD);
+			System.out.println("connection stablish");
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("connection not stablish");
 		}
 
 
 	}
 
-	private boolean exeSQL(String syntax) {
-		try {
-			System.out.println("try1");
-			PreparedStatement preparedStatement = connect
-					.prepareStatement(syntax);
-			
-			System.out.println("try2");
-//			preparedStatement.executeUpdate();
-			System.out.println("try3");
-			return true;
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("catch1");
-			e.printStackTrace();
-			return false;
-		}
+	public void insertHumanResource(String tableName,Object...args ) {
+		//		try {
+		//			String command = "INSERT INTO " +DATABASE_NAME+"."+ "human-resource" + " VALUES ("
+		//					+ hr.firstName+","+hr.lastName+","+ hr.melliNo +","+hr.employeeNo+","
+		//					+ hr.job.toString()+","+hr.subsystem.toString()+","
+		//					+hr.StartDate+")";
+		//			// PreparedStatements can use variables and are more efficient
+		//			Statement statment = connect.createStatement();
+		//			System.out.println(command);
+		//			statment.executeUpdate(command);
+		//
+		//
+		//		} catch (SQLException e) {
+		//			e.printStackTrace();
+		//		}
+		//
+		try{
+		String command = "INSERT INTO " + "`simoorgh-managment-system`.`human-resource`" + " VALUES (";
+		for (int i = 0; i < args.length-1; i++)
+			command += " ?,";
+		command += "?);";
+
+		// PreparedStatements can use variables and are more efficient
+		PreparedStatement statment = connect.prepareStatement(command);
+
+		for (int i = 1; i <= args.length; i++)
+			statment.setObject(i, args[i - 1]);
+
+		System.out.println(statment.toString());
+		statment.executeUpdate();
+
+
+
+	} 
+	catch(Exception e)
+	{
+		e.printStackTrace();
 	}
-
-
-	
-	
-	
-	public boolean contains(String tag) {
-		return find(tag);
-	}
-
-	public boolean contains(String tag, String value) {
-		return find(tag + ": " + value);
-	}
-
-	private boolean find(String query) {
-		try {
-			Scanner scanner = new Scanner(dbDescriptor);
-
-			// now read the file line by line...
-			while (scanner.hasNextLine()) {
-				String line = scanner.nextLine();
-				if (line.contains(query)) {
-					return true;
-				}
-			}
-
-			scanner.close();
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-
-		return false;
-	}
-	
-	public void close() {
-		try {
-			if (connect != null)
-				connect.close();
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public static void main(String[] args) {
-	}
+	//catch (Exception e) {
+		//e.printStackTrace();
+	//}
 }
+}
+
+
+
 
 

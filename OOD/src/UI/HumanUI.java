@@ -179,8 +179,20 @@ public class HumanUI {
 	protected void create(JTextField textFieldName2, JTextField textFieldLastName2, JTextField textFieldMelliNo2,
 			JTextField textFieldEmployeeNo2, JTextField textFieldStartDate2,Job job,Subsystem subsystem) {
 		// TODO Auto-generated method stub
+		try{
+		this.humanResource=new HumanResource(textFieldName2.getText(), textFieldLastName2.getText(), Integer.parseInt(textFieldMelliNo2.getText()),
+				Integer.parseInt(textFieldEmployeeNo2.getText()), textFieldStartDate2.getText(), job, subsystem);
+		humanResource.addResource();
+		}
+		catch(Exception exp){
+		exp.printStackTrace();
+//		System.out.println(humanResource.firstName);
+//		System.out.println(humanResource.lastName);
+//		System.out.println(humanResource.employeeNo);System.out.println(humanResource.melliNo);System.out.println(humanResource.StartDate);
+//		System.out.println(humanResource.job);
+//		System.out.println(humanResource.subsystem);
 		
-		this.humanResource=new HumanResource(textFieldName2.toString(), textFieldLastName2.toString(), Integer.parseInt(textFieldMelliNo2.getText()),
-				Integer.parseInt(textFieldEmployeeNo2.getText()), textFieldStartDate2.toString(), job, subsystem);
+		}
+		
 	}
 }
