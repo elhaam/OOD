@@ -91,6 +91,25 @@ public class Driver {
 		// TODO Auto-generated method stub
 		return lastID;
 	}
+	public ResultSet getAllRows(String tableName) {
+		// TODO Auto-generated method stub
+		try{
+		String query="select * from " + "`simoorgh-managment-system`.`"+tableName +"`;" ;
+		Statement statement = connect.createStatement();
+		
+		// Result set get the result of the SQL query
+		ResultSet rs=statement.executeQuery(query);
+		
+		return rs;
+		
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+
+		
+	}
 }
 
 

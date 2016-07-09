@@ -1,6 +1,8 @@
 package DevelopmentMaintanance;
 
 import java.util.ArrayList;
+
+import ResourceManagment.HumanResource;
 import ResourceManagment.Resource;
 import distributing.Project;
 
@@ -8,17 +10,17 @@ public class Module {
 	Project project;
 	String name;
 	int time;
-	ArrayList<String> developers;
+	ArrayList<HumanResource> developers;
 	boolean isGroup=false;
 	ArrayList<Resource> usedResource;
 	
-	public Module(String name,Project project,int time,ArrayList<String> dev,boolean b,ArrayList<Resource> r){
+	public Module(String name,Project project){ //,int time,ArrayList<String> dev,boolean b,ArrayList<Resource> r){
 		this.project=project;
 		this.name=name;
-		this.time=time;
-		this.developers=dev;
-		this.isGroup=b;
-		this.usedResource=r;
+//		this.time=time;
+//		this.developers=dev;
+//		this.isGroup=b;
+//		this.usedResource=r;
 	}
 	
 	

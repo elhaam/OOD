@@ -1,0 +1,85 @@
+package UI;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+
+public class testtable {
+
+	private JFrame frame;
+	private JTable table;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					testtable window = new testtable();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public testtable() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 434, 262);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(61, 150, 202, -109);
+		panel.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		table.getColumnModel().getColumn(0).setMinWidth(71);
+		table.getColumnModel().getColumn(0).setMaxWidth(20);
+		table.setForeground(Color.PINK);
+		table.setFillsViewportHeight(true);
+		table.setCellSelectionEnabled(true);
+		table.setBackground(Color.CYAN);
+		table.setBounds(42, 99, 371, 64);
+		panel.add(table);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBounds(304, 185, 89, 20);
+		panel.add(textPane);
+	}
+}
