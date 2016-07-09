@@ -35,7 +35,7 @@ public class HumanResource extends Resource{
 	
 	public void addResource(){
 		
-    	db.insert("human-resource",this.firstName,this.lastName,
+    	db.insertResource("human-resource",this.firstName,this.lastName,
     			this.melliNo,this.employeeNo,this.job.toString(),this.subsystem.toString(),this.StartDate);
 		
 	}

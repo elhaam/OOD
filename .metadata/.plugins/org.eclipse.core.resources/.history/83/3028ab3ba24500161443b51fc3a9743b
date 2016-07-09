@@ -59,10 +59,24 @@ public class Driver {
 	}
 
 
-	public void insert(String tableName,Object...args ) {
-		
+	public void insertHumanResource(String tableName,Object...args ) {
+		//		try {
+		//			String command = "INSERT INTO " +DATABASE_NAME+"."+ "human-resource" + " VALUES ("
+		//					+ hr.firstName+","+hr.lastName+","+ hr.melliNo +","+hr.employeeNo+","
+		//					+ hr.job.toString()+","+hr.subsystem.toString()+","
+		//					+hr.StartDate+")";
+		//			// PreparedStatements can use variables and are more efficient
+		//			Statement statment = connect.createStatement();
+		//			System.out.println(command);
+		//			statment.executeUpdate(command);
+		//
+		//
+		//		} catch (SQLException e) {
+		//			e.printStackTrace();
+		//		}
+		//
 		try{
-		String command = "INSERT INTO " + "`simoorgh-managment-system`."+tableName +"`" + " VALUES (";
+		String command = "INSERT INTO " + "`simoorgh-managment-system`.`human-resource`" + " VALUES (";
 		for (int i = 0; i < args.length-1; i++)
 			command += " ?,";
 		command += "?);";
