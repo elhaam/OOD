@@ -1,5 +1,9 @@
 package distributing;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 import ResourceManagment.InformationType;
 import ResourceManagment.Resource;
 import ResourceManagment.ResourceType;
@@ -21,7 +25,12 @@ public class Requirement {
 		this.assignDate = ad;
 		
 	}
-	public void CreateRequirement(){};
+	public void CreateRequirement(String n,String s,String cd ,String ad){
+		 ArrayList<String> requirement = new ArrayList<String>();
+		 //requirement.addAll();
+		//requirement.add(n);
+		
+	};
 	public void EditRequirement(){};
 	
 	
