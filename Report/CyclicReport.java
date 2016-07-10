@@ -1,10 +1,13 @@
 package Report;
 
+import java.util.ArrayList;
+
 import DB.DataSource;
+import DB.Driver;
 
 public class CyclicReport {
 	private static CyclicReport self = null;
-	private DataSource db;
+	private Driver db;
 	
 	public static CyclicReport getInstance() {
 		if (self == null) {
@@ -15,10 +18,14 @@ public class CyclicReport {
 	}
 	
 	private CyclicReport() {
-		db = DataSource.getInstance();
+		db = Driver.getInstance();
 	}
 	
-	// TODO 
 	
+	public ArrayList<String[]> generateReport() {
+		ArrayList<String[]> result = new ArrayList<>();
+		// TODO 	
+	return result;	
+	}
 	
 }
