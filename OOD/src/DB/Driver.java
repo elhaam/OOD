@@ -110,6 +110,24 @@ public class Driver {
 
 		
 	}
+	public ResultSet getARow(String tableName , String id,String id2){
+		try{
+			String query="select * from " + "`simoorgh-managment-system`.`"+tableName +"`"+"where "+
+					id +"='"+id2+"';" ;
+			Statement statement = connect.createStatement();
+			
+			// Result set get the result of the SQL query
+			ResultSet rs=statement.executeQuery(query);
+			
+			return rs;
+			
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			return null;
+
+	}
 }
 
 
