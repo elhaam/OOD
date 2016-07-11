@@ -294,7 +294,7 @@ public class createModule2 {
 					fard.setVisible(true);
 					ResultSet rs=db.getARow("project", "name",project.toString() );
 					try {
-						//System.out.println("projectttttt:"+rs.getString("name"));
+						System.out.println("projectttttt:"+rs.getString("name"));
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

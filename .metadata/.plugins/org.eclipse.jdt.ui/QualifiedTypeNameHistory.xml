@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="UI.FinancialUI"/>
 <fullyQualifiedTypeName name="UI.HumanUI"/>
 <fullyQualifiedTypeName name="UI.InformationalUI"/>
-<fullyQualifiedTypeName name="ResourceManagment.PhysicalResource"/>
 <fullyQualifiedTypeName name="ResourceManagment.HumanResource"/>
 <fullyQualifiedTypeName name="ResourceManagment.Job"/>
 <fullyQualifiedTypeName name="ResourceManagment.Subsystem"/>
@@ -15,9 +14,11 @@
 <fullyQualifiedTypeName name="ResourceManagment.FinancialResource"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="distributing.Project"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="ResourceManagment.Resource"/>
 <fullyQualifiedTypeName name="net.proteanit.sql.DbUtils"/>
 <fullyQualifiedTypeName name="javax.swing.ListSelectionModel"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="ResourceManagment.PhysicalResource"/>
+<fullyQualifiedTypeName name="DB.Driver"/>
 </qualifiedTypeNameHistroy>

@@ -9,7 +9,7 @@ public class  Project{
 	private String StartDate;
 	//Job job;
 	//Subsystem subsystem;
-	//public Project getInstance()
+	public Project getInstance()
 	public Project(String pr ,String tech ,int mc , int hc, String r, String SD ) {
 		this.projectName = pr;
 		this.technology = tech;

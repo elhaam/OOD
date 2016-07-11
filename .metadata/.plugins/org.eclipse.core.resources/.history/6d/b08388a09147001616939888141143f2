@@ -293,18 +293,12 @@ public class createModule2 {
 					choose.setVisible(false);
 					fard.setVisible(true);
 					ResultSet rs=db.getARow("project", "name",project.toString() );
-					try {
-						//System.out.println("projectttttt:"+rs.getString("name"));
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					//module=new Module(textFieldName.getText(),rs.,false);
+					module=new Module(textFieldName.getText(),rs.,false);
 				}
 				else if(groupbutton.isSelected()){
 					choose.setVisible(false);
 					group.setVisible(true);
-					//module=new Module(textFieldName.getText(),project.toString(),true);
+					module=new Module(textFieldName.getText(),project.toString(),true);
 				}
 				
 			}

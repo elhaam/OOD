@@ -21,7 +21,7 @@ public class Module {
 	public Driver db;
 	
 	public Module(String name,String project,boolean g){ //,int time,ArrayList<String> dev,boolean b,ArrayList<Resource> r){
-		//this.project=project;
+		this.project=project;
 		this.name=name;
 		db=new Driver();
 		this.isGroup=g;
@@ -42,9 +42,7 @@ public class Module {
 	public void createModule(){
 		
 	}
-	public void maintainModule(){
-		
-	}
+	public void main
 	
 	
 }
