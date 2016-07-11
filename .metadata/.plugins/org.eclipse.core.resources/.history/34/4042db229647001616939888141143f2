@@ -295,7 +295,7 @@ public class createModule2 {
 					ResultSet rs=db.getARow("project", "name",project.toString() );
 					try {
 						//System.out.println("projectttttt:"+rs.getString("name"));
-					} catch (Exception e) {
+					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
