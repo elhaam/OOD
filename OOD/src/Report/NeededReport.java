@@ -1,10 +1,13 @@
 package Report;
 
+import java.util.ArrayList;
+
 import DB.DataSource;
+import DB.Driver;
 
 public class NeededReport {
 	private static NeededReport self = null;
-	private DataSource db;
+	private Driver db;
 	
 	public static NeededReport getInstance() {
 		if (self == null) {
@@ -14,8 +17,12 @@ public class NeededReport {
 	}
 	
 	private NeededReport() {
-		db = DataSource.getInstance();
+		db = Driver.getInstance();
 	}
 
-	// TODO
+	public ArrayList<String[]> generateReport() {
+		ArrayList<String[]> result = new ArrayList<>();
+		// TODO 	
+	return result;	
+	}
 }

@@ -8,10 +8,14 @@ public class User extends HumanResource {
 	String passText;
 	private int employeeid;
 
-	public User(String f, String l, int m, int e, String s, Job j, Subsystem sub, String p) {
+	public User(String f, String l, int m, int e, String s, Job j, Subsystem sub, String p, 
+			Boolean ismiddle, Boolean ismanager) {
 		super(f, l, m, e, s, j, sub);
 		passText = p;
 		employeeid = e;
+		ismanager = false;
+		ismiddle = false;
+
 		// TODO Auto-generated constructor stub
 	}
 
