@@ -32,7 +32,6 @@ public class Requirement {
 		
 	};
 	public void EditRequirement(){};
-    public void addResource(){};
 	
 	
 }
