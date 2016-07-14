@@ -1,0 +1,21 @@
+package distributing;
+
+public class InformationalRequirement {
+
+	public InformationalRequirement(String n, String s,String cd, String p) {
+		
+		// TODO Auto-generated constructor stub
+	}
+
+	public void addResource() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	//public InformationalRequirement(String text, String text2, String text3, String text4) {
+		// TODO Auto-generated constructor stub
+	//}
+	
+	
+
+}

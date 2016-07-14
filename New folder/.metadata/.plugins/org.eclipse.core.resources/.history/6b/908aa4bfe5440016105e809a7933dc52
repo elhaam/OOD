@@ -1,0 +1,37 @@
+package ResourceManagment;
+import DB.DataSource;
+import ir.sharif.knowledge.KnowledgeCategoryCatalogue;
+
+public class HumanResource extends Resource{
+	public  String firstName;
+	public String lastName;
+	public int melliNo;
+	public int employeeNo;
+	public String StartDate;
+	public Job job;
+	public Subsystem subsystem;
+	private DataSource db;
+	
+	public HumanResource(String f,String l,int m, int e, String s,Job j,Subsystem sub) {
+		super(ResourceType.HUMAN);
+		this.firstName=f;
+		this.lastName=l;
+		this.melliNo=m;
+		this.employeeNo=e;
+		this.StartDate=s;
+		this.job=j;
+		this.subsystem=sub;
+		
+	}
+	
+	
+	
+	public void addResource(HumanResource hr){
+		
+		((DataSource) db).addHumanResource(hr);
+	}
+	
+	
+	
+
+}
