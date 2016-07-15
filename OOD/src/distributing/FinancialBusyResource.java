@@ -2,7 +2,7 @@ package distributing;
 
 import ResourceManagment.Resource;
 
-public class FinancialBusyResource {
+public class FinancialBusyResource extends BusyResource {
 	private float value;
 	private String requirementName;
 	private String section;

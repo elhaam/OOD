@@ -16,9 +16,15 @@
 <fullyQualifiedTypeName name="distributing.Project"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="ResourceManagment.Resource"/>
-<fullyQualifiedTypeName name="net.proteanit.sql.DbUtils"/>
 <fullyQualifiedTypeName name="javax.swing.ListSelectionModel"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="ResourceManagment.PhysicalResource"/>
+<fullyQualifiedTypeName name="distributing.BusyResource"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="net.proteanit.sql.DbUtils"/>
+<fullyQualifiedTypeName name="UI.Physicalassign"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="DB.Driver"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="distributing.Requirement"/>
 </qualifiedTypeNameHistroy>

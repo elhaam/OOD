@@ -9,6 +9,7 @@ public class PhysicalResource extends Resource{
 		this.No=n;
 		this.modelName=m;
 		this.type=t;
+		
 	}
 	
 	public void addResource(){

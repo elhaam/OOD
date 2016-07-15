@@ -23,7 +23,10 @@ public class  Project{
 		db=new Driver();
 		
 	}
-	public void addModule(){
-		db.insert("project", this.projectName,this.moduleCount , this.humanCount , this.technology , this.reason , this.startDate);}
+	public void addProject(){
+		db.insert("project", this.projectName,this.moduleCount 
+				, this.humanCount , this.technology , this.reason 
+				, this.startDate);}
+	
 
 }

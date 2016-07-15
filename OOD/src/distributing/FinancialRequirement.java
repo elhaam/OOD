@@ -1,13 +1,27 @@
 package distributing;
 
-public class FinancialRequirement {
+public class FinancialRequirement extends Requirement {
+	private String requirementName;
+	private String section;
+	private String createDate;
+	private String projectName;
+	private String User;
+	private int value;
 
-	public FinancialRequirement(String text, String text2, int parseInt, String text3, String text4) {
-		// TODO Auto-generated constructor stub
+	public FinancialRequirement(String n, int v, String p, String s  , String cd) {
+
+		this.requirementName=n;
+		this.section=s;
+		this.value = v;
+		this.createDate=cd;
+		this.projectName = p ;
 	}
 
-	public void addResource() {
-		// TODO Auto-generated method stub
+	public void addRequirement() {
+		db.insert("financialrequirement",this.requirementName , this.value ,
+	  			this.projectName ,
+	  			this.section ,
+	  			this.createDate );
 		
 	}
 

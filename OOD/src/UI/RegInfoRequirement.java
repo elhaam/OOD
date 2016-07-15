@@ -182,7 +182,7 @@ public class RegInfoRequirement {
 	protected void create(JTextField textFieldsection2, JTextField textFieldproject2, JTextField textFieldres2, JTextField textFieldcreatedate2) {
 		// TODO Auto-generated method stub
 		this.informationalRequirement=new InformationalRequirement(textFieldcreatedate2.getText() , textFieldsection2.getText(), textFieldres2.getText(), textFieldproject2.getText());
-		informationalRequirement.addResource();
+		informationalRequirement.addRequirement();
 		
 	}
 	

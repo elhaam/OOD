@@ -1,0 +1,91 @@
+package UI;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+import com.mysql.jdbc.Connection;
+
+import DB.Driver;
+import DevelopmentMaintanance.Module;
+import net.proteanit.sql.DbUtils;
+
+import javax.swing.JScrollPane;
+import java.sql.*;
+import java.util.Scanner;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+public class Finantialassign {
+	private JFrame frame;
+	private JTextField textFieldName;
+	private JTable table;
+	private JTable table_2;
+	public Module module;
+	public Driver db;
+	public ResultSet allProject; 
+	public ResultSet allResource;
+	public JComboBox comboBoxProject;
+	private JTable tableHuman;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Finantialassign window = new Finantialassign();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+		Connection connection = null;
+	/**
+	 * Create the application.
+	 */
+	public Finantialassign() {
+		db=new Driver();
+		//connection = Driver.driver;
+		initialize();
+		
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 653, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton Financial = new JButton("New button");
+		Financial.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String query  = "select * from humanrequirement ";
+						PreparedStatement pst = connection.prepareStatement(query);
+				ResultSet rs = pst.executeQuery();
+				table.setModel(DbUtils.resultSetToTableModel(rs));
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		Financial.setBounds(512, 11, 89, 23);
+		frame.getContentPane().add(Financial);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(102, 64, 499, 159);
+		frame.getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+	}
+}

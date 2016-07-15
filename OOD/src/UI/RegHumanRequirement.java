@@ -194,8 +194,8 @@ public class RegHumanRequirement {
 	}
 	protected void create(JTextField textFieldres2, JTextField textFieldsection2, JTextField textFieldcount2 , JTextField textFieldproject2 , JTextField textFieldcreatedate2) {
 		// TODO Auto-generated method stub
-		this.humanrequirement=new HumanRequirement(textFieldres2.getText(), textFieldsection2.getText(), Integer.parseInt(textFieldcount2.getText()) , textFieldproject2.getText(), textFieldcreatedate2.getText());
-		humanrequirement.addResource();
+		this.humanrequirement=new HumanRequirement(textFieldres2.getText(), Integer.parseInt(textFieldcount2.getText()), textFieldproject2.getText() , textFieldsection2.getText(), textFieldcreatedate2.getText());
+		humanrequirement.addRequirement();
 		
 	}
 }

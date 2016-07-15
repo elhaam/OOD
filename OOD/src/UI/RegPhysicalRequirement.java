@@ -14,9 +14,9 @@ import javax.swing.JLabel;
 //import com.jgoodies.forms.factories.DefaultComponentFactory;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
-import ResourceManagment.PhysicalResource;
+//import ResourceManagment.PhysicalResource;
 import distributing.PhysicalRequirement;
-import distributing.Requirement;
+//import distributing.Requirement;
 
 import java.awt.Component;
 import java.awt.GridBagLayout;
@@ -42,7 +42,7 @@ public class RegPhysicalRequirement {
 	 */
 	
 	
-	public void showRegPhysicalRequirement() {
+	public  void showRegPhysicalRequirement() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -184,7 +184,7 @@ public class RegPhysicalRequirement {
 		regReq.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				create(textFieldsection,textFieldproject,textFieldres , textFieldcount , textFieldcreatedate);
+				create(textFieldres , textFieldcount ,textFieldproject, textFieldsection  , textFieldcreatedate);
 			}
 		});
 		GridBagConstraints gbc_regReq = new GridBagConstraints();
@@ -196,11 +196,11 @@ public class RegPhysicalRequirement {
 		panel.add(regReq, gbc_regReq);
 	}
 
-	protected void create(JTextField textFieldsection2, JTextField textFieldproject2, JTextField textFieldres2,
-			JTextField textFieldcount2, JTextField textFieldcreatedate2) {
+	protected void create(JTextField textFieldres2, JTextField textFieldcount2, JTextField textFieldproject2,
+			JTextField textFieldsection2, JTextField textFieldcreatedate2) {
 		// TODO Auto-generated method stub
-		this.physicalRequirement=new PhysicalRequirement(Integer.parseInt(textFieldcount2.getText()), textFieldcreatedate2.getText() , textFieldsection2.getText(), textFieldres2.getText(), textFieldproject2.getText());
-		physicalRequirement.addResource();
+		this.physicalRequirement=new PhysicalRequirement(textFieldres2.getText() , Integer.parseInt(textFieldcount2.getText()), textFieldproject2.getText() , textFieldsection2.getText(),  textFieldcreatedate2.getText());
+		physicalRequirement.addRequirement();
 		
 	}
 	

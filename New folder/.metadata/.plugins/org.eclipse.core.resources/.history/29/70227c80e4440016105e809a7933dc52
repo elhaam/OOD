@@ -1,5 +1,0 @@
-package DB;
-
-public interface DBI {
-	void insert(String tableName,Object... arg);
-}

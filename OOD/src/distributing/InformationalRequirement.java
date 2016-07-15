@@ -1,21 +1,28 @@
 package distributing;
 
-public class InformationalRequirement {
+public class InformationalRequirement extends Requirement {
+	private String requirementName;
+	private String section;
+	private String createDate;
+	private String projectName;
+	private String User;
 
-	public InformationalRequirement(String n, String s,String cd, String p) {
-		
-		// TODO Auto-generated constructor stub
+
+	public InformationalRequirement(String n, String p, String s  , String cd) {
+		this.requirementName=n;
+		this.section=s;
+		this.createDate=cd;
+		this.projectName = p;
 	}
 
-	public void addResource() {
-		// TODO Auto-generated method stub
+	public void addRequirement() {
+		db.insert("financialrequirement",this.requirementName ,
+	  			this.projectName ,
+	  			this.section ,
+	  			this.createDate );
 		
-	}
-
-	//public InformationalRequirement(String text, String text2, String text3, String text4) {
-		// TODO Auto-generated constructor stub
-	//}
 	
 	
 
+}
 }
