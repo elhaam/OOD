@@ -1,0 +1,60 @@
+package Report;
+
+import java.util.ArrayList;
+
+import DB.DataSource;
+import DB.Driver;
+import ResourceManagment.Resource;
+
+public class CyclicReport {
+	private static CyclicReport self = null;
+	private Driver db;
+	
+	public static CyclicReport getInstance() {
+		if (self == null) {
+			return new CyclicReport();
+		}
+		
+		return self;
+	}
+	
+	private CyclicReport() {
+		db = Driver.getInstance();
+	}
+	
+	
+	public ArrayList<String[]> generateReport() {
+		ArrayList<String[]> result = new ArrayList<>();
+		ArrayList<Resource> list = (ArrayList<Resource>) db.getAllRows("Resource");
+		
+		for (Resource k : list) {
+			System.out.println("id  : "+k.getID());
+			ArrayList<String[]> result2 = db.getRelationshipBySourceID(Long.toString(
+					k.getID()));
+			System.out.println(result2.size());
+			String[] str = new String[5];
+			str[0] = k.getTitle();
+			User user2 = k.getCreator();
+			str[1] = user2.getUsername();
+			str[2] = "";
+			str[3] = "";
+			str[4] = "";
+			if(result2.size()!=0)
+			{
+				if(result2.get(0)!=null)
+				{
+					str[3] = result2.get(0)[0];
+					str[4] = result2.get(0)[1];
+				}	
+			}
+			
+			result.add(str);
+		}
+		
+		
+		// TODO 	
+	return result;	
+	}
+	
+	
+}

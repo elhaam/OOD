@@ -1,0 +1,12 @@
+package distributing;
+
+public class InformationalRequirement extends Requirement {
+
+	public InformationalRequirement(String n, String s, int c, String cd, String p) {
+		super(n, s, c, cd, p);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}
