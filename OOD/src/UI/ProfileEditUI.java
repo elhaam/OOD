@@ -133,4 +133,17 @@ public class ProfileEditUI {
 		frame.getContentPane().add(txtAndroid);
 		txtAndroid.setColumns(10);
 	}
+
+	public void newScreen() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ProfileEditUI window = new ProfileEditUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});	
+	}
 }

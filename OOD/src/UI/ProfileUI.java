@@ -107,4 +107,17 @@ public class ProfileUI {
 		button.setBounds(31, 236, 89, 23);
 		frame.getContentPane().add(button);
 	}
+
+	public void newScreen() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ProfileUI window = new ProfileUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});			
+	}
 }
