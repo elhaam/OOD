@@ -1,0 +1,24 @@
+package distributing;
+import distributing.Requirement;
+
+public class HumanRequirement extends Requirement {
+	private String requirementName;
+	private String section;
+	private String createDate;
+	private String projectName;
+	private String User;
+	private int count;
+
+	public HumanRequirement(String n, String s, int c, String cd, String p) {
+
+		this.requirementName=n;
+		this.section=s;
+		this.count = c;
+		this.createDate=cd;
+		this.projectName = p ;
+		
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

@@ -1,0 +1,335 @@
+package UI;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import java.awt.CardLayout;
+import javax.swing.JLayeredPane;
+import javax.swing.JSpinner;
+import javax.swing.JEditorPane;
+import javax.swing.JToggleButton;
+import javax.swing.ListSelectionModel;
+import javax.swing.JTable;
+import javax.swing.border.TitledBorder;
+
+import DB.Driver;
+import DevelopmentMaintanance.Module;
+import net.proteanit.sql.DbUtils;
+
+import javax.swing.UIManager;
+import java.awt.Color;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+
+public class createModule2 {
+
+	private JFrame frame;
+	private JTextField textFieldName;
+	private JTable table;
+	public Module module;
+	public Driver db;
+	public ResultSet all; 
+	public ResultSet allResource;
+	public JComboBox comboBoxProject;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					createModule2 window = new createModule2();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public createModule2() {
+		db=new Driver();
+
+		initialize();
+	}
+
+	private void fillComboBox(JComboBox comboBox,String tablename,String... id) {
+		// TODO Auto-generated method stub
+		
+		all=db.getAllRows(tablename);
+		try {
+			
+			if(id.length >1){
+				while(all.next()){
+					int i=0;
+					System.out.println(tablename+":  "+all.getString(id[i++])+" "+all.getString(id[i]));
+					 i=0;
+					comboBox.addItem(all.getString(id[i++])+" "+all.getString(id[i]));
+				}
+			}
+
+			else{
+				int j=0;
+				while(all.next()){
+					System.out.println(tablename+":  "+all.getString(id[j]));
+					comboBox.addItem(all.getString(id[j]));
+				}
+			}
+
+			all.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	private void fillTable(JTable table,String TableName) {
+		// TODO Auto-generated method stub
+		allResource=db.getAllRows(TableName);
+		try{
+			allResource.close();
+		}
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 755, 408);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new CardLayout(0, 0));
+
+		JPanel choose = new JPanel();
+		frame.getContentPane().add(choose, "name_27785320742114");
+		choose.setLayout(null);
+
+		textFieldName = new JTextField();
+		textFieldName.setBounds(127, 46, 113, 20);
+		choose.add(textFieldName);
+		textFieldName.setColumns(10);
+
+		JLabel label = new JLabel("\u0646\u0627\u0645 \u0645\u0627\u0698\u0648\u0644:");
+		label.setBounds(286, 49, 46, 14);
+		choose.add(label);
+
+		JLabel label_1 = new JLabel("\u0646\u0627\u0645 \u067E\u0631\u0648\u0698\u0647:");
+		label_1.setBounds(286, 101, 46, 14);
+		choose.add(label_1);
+
+		comboBoxProject = new JComboBox();
+		comboBoxProject.setBounds(127, 98, 113, 20);
+		choose.add(comboBoxProject);
+		
+		fillComboBox(comboBoxProject,"project","name");
+		
+
+		JLabel label_2 = new JLabel("\u0646\u0648\u0639 \u0627\u06CC\u062C\u0627\u062F \u06A9\u0646\u0646\u062F\u0647:");
+		label_2.setBounds(286, 156, 70, 14);
+		choose.add(label_2);
+
+		JPanel group = new JPanel();
+		frame.getContentPane().add(group, "name_27785336076539");
+		group.setLayout(null);
+
+		JPanel fard = new JPanel();
+		frame.getContentPane().add(fard, "name_27785350484429");
+		fard.setLayout(null);
+
+		JRadioButton fardbutton = new JRadioButton("\u0641\u0631\u062F");
+		fardbutton.setBounds(200, 152, 70, 23);
+		choose.add(fardbutton);
+
+		JRadioButton groupbutton = new JRadioButton("\u06AF\u0631\u0648\u0647");
+		groupbutton.setBounds(112, 152, 86, 23);
+		choose.add(groupbutton);
+
+		JButton button = new JButton("\u0627\u062F\u0627\u0645\u0647 \u062F\u0631\u06CC\u0627\u0641\u062A \u0627\u0637\u0644\u0627\u0639\u0627\u062A");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//module=new Module()
+
+				if(fardbutton.isSelected()){
+					choose.setVisible(false);
+					fard.setVisible(true);
+				}
+				else if(groupbutton.isSelected()){
+					choose.setVisible(false);
+					group.setVisible(true);
+				}
+			}
+		});
+		button.setBounds(47, 211, 129, 23);
+		choose.add(button);
+
+
+
+		JLabel label_5 = new JLabel("\u0632\u0645\u0627\u0646 \u0645\u0635\u0631\u0641\u06CC:");
+		label_5.setBounds(612, 32, 63, 14);
+		group.add(label_5);
+
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setBounds(530, 29, 42, 20);
+		group.add(spinner_1);
+
+		JLabel label_6 = new JLabel("\u0633\u0627\u0639\u062A");
+		label_6.setBounds(474, 32, 46, 14);
+		group.add(label_6);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "\u0645\u0646\u0627\u0628\u0639 \u0641\u06CC\u0632\u06CC\u06A9\u06CC", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_2.setBounds(21, 68, 328, 103);
+		group.add(panel_2);
+
+		JButton addButPhys = new JButton("\u0627\u0636\u0627\u0641\u0647 \u06A9\u0631\u062F\u0646");
+		addButPhys.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int count=1;
+				addMore(panel_2,count);
+			}
+		});
+		addButPhys.setBounds(25, 26, 89, 23);
+		panel_2.add(addButPhys);
+
+		JComboBox comboPhys = new JComboBox();
+		comboPhys.setBounds(153, 27, 145, 20);
+		panel_2.add(comboPhys);
+		fillComboBox(comboPhys,"physical-resource","no");
+
+		JButton gmodulebutt = new JButton("\u062B\u0628\u062A \u0645\u0627\u0698\u0648\u0644");
+		gmodulebutt.setBounds(21, 313, 89, 23);
+		group.add(gmodulebutt);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "\u0645\u0646\u0627\u0628\u0639 \u0627\u0646\u0633\u0627\u0646\u06CC", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBounds(359, 69, 345, 103);
+		group.add(panel_1);
+
+		JButton addButHuman = new JButton("\u0627\u0636\u0627\u0641\u0647 \u06A9\u0631\u062F\u0646\r\n");
+		addButHuman.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int count=0;
+				addMore(panel_1,count);
+			}
+		});
+		addButHuman.setBounds(33, 21, 89, 23);
+		panel_1.add(addButHuman);
+
+		JComboBox comboHum = new JComboBox();
+		comboHum.setBounds(170, 22, 145, 20);
+		panel_1.add(comboHum);
+		fillComboBox(comboHum,"human-resource","firstname","lastname");
+
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(360, 193, 344, 103);
+		group.add(panel_3);
+		panel_3.setLayout(null);
+		panel_3.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "\u0645\u0646\u0627\u0628\u0639 \u0627\u0637\u0644\u0627\u0639\u0627\u062A\u06CC", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+
+		JButton addButInfo = new JButton("\u0627\u0636\u0627\u0641\u0647 \u06A9\u0631\u062F\u0646");
+		addButInfo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int count=1;
+				addMore(panel_3,count);
+			}
+		});
+		addButInfo.setBounds(29, 25, 89, 23);
+		panel_3.add(addButInfo);
+
+		JComboBox comboInfo = new JComboBox();
+		comboInfo.setBounds(168, 26, 145, 20);
+		panel_3.add(comboInfo);
+		fillComboBox(comboInfo,"informational-resource", "no");
+
+		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(21, 193, 328, 103);
+		group.add(panel_4);
+		panel_4.setLayout(null);
+		panel_4.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "\u0645\u0646\u0627\u0628\u0639 \u0645\u0627\u0644\u06CC", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+
+		JButton addButFinan = new JButton("\u0627\u0636\u0627\u0641\u0647 \u06A9\u0631\u062F\u0646");
+		addButFinan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int count=1;
+				addMore(panel_4,count);
+			}
+		});
+		addButFinan.setBounds(23, 27, 89, 23);
+		panel_4.add(addButFinan);
+
+		JComboBox comboFin = new JComboBox();
+		comboFin.setBounds(152, 28, 145, 20);
+		panel_4.add(comboFin);
+		fillComboBox(comboFin,"financial-resource-budget", "accountno");
+
+
+		JLabel label_3 = new JLabel("\u0632\u0645\u0627\u0646 \u0645\u0635\u0631\u0641\u06CC:");
+		label_3.setBounds(124, 21, 79, 14);
+		fard.add(label_3);
+
+		JLabel label_4 = new JLabel("\u0633\u0627\u0639\u062A");
+		label_4.setBounds(25, 21, 46, 14);
+		fard.add(label_4);
+
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(68, 18, 46, 20);
+		fard.add(spinner);
+
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(null, "\u0645\u0646\u0627\u0628\u0639 \u0645\u0635\u0631\u0641\u06CC", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBounds(25, 49, 383, 202);
+		fard.add(panel);
+		panel.setLayout(null);
+
+		table = new JTable();
+		table.setBounds(355, 24, -346, 167);
+		panel.add(table);
+
+		JButton fmoduleBut = new JButton("\u062B\u0628\u062A \u0645\u0627\u0698\u0648\u0644");
+		fmoduleBut.setBounds(25, 272, 89, 23);
+		fard.add(fmoduleBut);
+
+		JLabel label_9 = new JLabel("\u0627\u06CC\u062C\u0627\u062F \u06A9\u0646\u0646\u062F\u0647:");
+		label_9.setBounds(348, 21, 60, 14);
+		fard.add(label_9);
+
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(213, 18, 125, 20);
+		fard.add(comboBox_1);
+	}
+
+	protected void addMore(JPanel panel,int count,int i, int j , int k, int l,String tablename,String... args ) {
+		// TODO Auto-generated method stub
+		 JComboBox newbox = new JComboBox();
+		 comboFin.setBounds(i, j, k, l);
+         newbox.setName("combo" + count );
+         count++;
+         panel.add(newbox);
+         fillComboBox(newbox,tablename, args);
+//         panel.revalidate();  // For JDK 1.7 or above.
+//         //frame.getContentPane().revalidate(); // For JDK 1.6 or below.
+//         panel.repaint();
+
+	}
+}
