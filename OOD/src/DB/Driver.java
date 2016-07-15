@@ -76,7 +76,7 @@ public class Driver {
 
 			System.out.println(statment.toString());
 			statment.executeUpdate();
-			
+
 
 
 
@@ -85,7 +85,7 @@ public class Driver {
 		{
 			e.printStackTrace();
 		}
-		
+
 	}
 	public long getLastID() {
 		// TODO Auto-generated method stub
@@ -94,39 +94,75 @@ public class Driver {
 	public ResultSet getAllRows(String tableName) {
 		// TODO Auto-generated method stub
 		try{
-		String query="select * from " + "`simoorgh-managment-system`.`"+tableName +"`;" ;
-		Statement statement = connect.createStatement();
-		
-		// Result set get the result of the SQL query
-		ResultSet rs=statement.executeQuery(query);
-		
-		return rs;
-		
+			String query="select * from " + "`simoorgh-managment-system`.`"+tableName +"`;" ;
+			Statement statement = connect.createStatement();
+
+			// Result set get the result of the SQL query
+			ResultSet rs=statement.executeQuery(query);
+
+			return rs;
+
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
 		return null;
 
-		
+
 	}
 	public ResultSet getARow(String tableName , String id,String id2){
 		try{
 			String query="select * from " + "`simoorgh-managment-system`.`"+tableName +"`"+"where "+
 					id +"='"+id2+"';" ;
 			Statement statement = connect.createStatement();
-			
+
 			// Result set get the result of the SQL query
 			ResultSet rs=statement.executeQuery(query);
-			
-			return rs;
-			
-			}
-			catch(Exception e){
-				e.printStackTrace();
-			}
-			return null;
 
+			return rs;
+
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+	public void delete(String tableName,String column ,String value) {
+		// TODO Auto-generated method stub
+		try{
+			String query="delete from " + "`simoorgh-managment-system`.`"+tableName +"`"+
+					"where `"+column+"`="+value+";" ;
+			System.out.println(query);
+			Statement statement = connect.createStatement();
+
+			// Result set get the result of the SQL query
+			statement.executeUpdate(query);
+
+
+
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+	}
+	public int countObject(String tableName) {
+		// TODO Auto-generated method stub
+		try{
+			String q="SELECT COUNT(*) FROM "+ "`simoorgh-managment-system`.`"+tableName +"`;" ;
+
+			Statement statement = connect.createStatement();
+
+			// Result set get the result of the SQL query
+			ResultSet rs=statement.executeQuery(q);
+			while(rs.next())
+				return rs.getInt(1);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }
 

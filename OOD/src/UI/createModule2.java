@@ -127,6 +127,7 @@ public class createModule2 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("\u062B\u0628\u062A \u0641\u0631\u0622\u06CC\u0646\u062F \u0627\u06CC\u062C\u0627\u062F");
 		frame.setBounds(100, 100, 755, 408);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
@@ -136,27 +137,27 @@ public class createModule2 {
 		choose.setLayout(null);
 
 		textFieldName = new JTextField();
-		textFieldName.setBounds(127, 46, 113, 20);
+		textFieldName.setBounds(327, 59, 113, 20);
 		choose.add(textFieldName);
 		textFieldName.setColumns(10);
 
 		JLabel label = new JLabel("\u0646\u0627\u0645 \u0645\u0627\u0698\u0648\u0644:");
-		label.setBounds(286, 49, 46, 14);
+		label.setBounds(486, 62, 46, 14);
 		choose.add(label);
 
 		JLabel label_1 = new JLabel("\u0646\u0627\u0645 \u067E\u0631\u0648\u0698\u0647:");
-		label_1.setBounds(286, 101, 46, 14);
+		label_1.setBounds(479, 115, 46, 14);
 		choose.add(label_1);
 
 		comboBoxProject = new JComboBox();
-		comboBoxProject.setBounds(127, 98, 113, 20);
+		comboBoxProject.setBounds(327, 111, 113, 20);
 		choose.add(comboBoxProject);
 		
 		project=fillComboBox(comboBoxProject,"project","name");
 		
 
 		JLabel label_2 = new JLabel("\u0646\u0648\u0639 \u0627\u06CC\u062C\u0627\u062F \u06A9\u0646\u0646\u062F\u0647:");
-		label_2.setBounds(286, 156, 70, 14);
+		label_2.setBounds(479, 170, 70, 14);
 		choose.add(label_2);
 
 		JPanel group = new JPanel();
@@ -277,11 +278,11 @@ public class createModule2 {
 		
 
 		JRadioButton fardbutton = new JRadioButton("\u0641\u0631\u062F");
-		fardbutton.setBounds(200, 152, 70, 23);
+		fardbutton.setBounds(393, 166, 70, 23);
 		choose.add(fardbutton);
 
 		JRadioButton groupbutton = new JRadioButton("\u06AF\u0631\u0648\u0647");
-		groupbutton.setBounds(112, 152, 86, 23);
+		groupbutton.setBounds(305, 166, 86, 23);
 		choose.add(groupbutton);
 
 		JButton button = new JButton("\u0627\u062F\u0627\u0645\u0647 \u062F\u0631\u06CC\u0627\u0641\u062A \u0627\u0637\u0644\u0627\u0639\u0627\u062A");
@@ -309,7 +310,7 @@ public class createModule2 {
 				
 			}
 		});
-		button.setBounds(47, 211, 129, 23);
+		button.setBounds(240, 225, 129, 23);
 		choose.add(button);
 
 
@@ -386,7 +387,7 @@ public class createModule2 {
 			public void actionPerformed(ActionEvent arg0) {
 				int count=0;
 				ii +=25;
-				//hum=addMore(panel_1,count,170, ii, 145, 20,"human-resource","firstname","lastname");
+				hum=addMore(panel_1,count,170, ii, 145, 20,"human-resource","firstname","lastname");
 				//humanres
 			}
 		});
