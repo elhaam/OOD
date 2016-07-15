@@ -1,0 +1,103 @@
+package UI;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import java.awt.CardLayout;
+import javax.swing.JLayeredPane;
+
+public class createModule {
+
+	private JFrame frame;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					createModule window = new createModule();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public createModule() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel choose = new JPanel();
+		choose.setBounds(0, 0, 434, 262);
+		frame.getContentPane().add(choose);
+		choose.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(127, 46, 113, 20);
+		choose.add(textField);
+		textField.setColumns(10);
+		
+		JLabel label = new JLabel("\u0646\u0627\u0645 \u0645\u0627\u0698\u0648\u0644:");
+		label.setBounds(286, 49, 46, 14);
+		choose.add(label);
+		
+		JLabel label_1 = new JLabel("\u0646\u0627\u0645 \u067E\u0631\u0648\u0698\u0647:");
+		label_1.setBounds(286, 101, 46, 14);
+		choose.add(label_1);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(127, 98, 113, 20);
+		choose.add(comboBox);
+		
+		JLabel label_2 = new JLabel("\u0646\u0648\u0639 \u0627\u06CC\u062C\u0627\u062F \u06A9\u0646\u0646\u062F\u0647:");
+		label_2.setBounds(286, 156, 70, 14);
+		choose.add(label_2);
+		
+		JRadioButton radioButton = new JRadioButton("\u0641\u0631\u062F");
+		radioButton.setBounds(200, 152, 70, 23);
+		choose.add(radioButton);
+		
+		JRadioButton radioButton_1 = new JRadioButton("\u06AF\u0631\u0648\u0647");
+		radioButton_1.setBounds(112, 152, 86, 23);
+		choose.add(radioButton_1);
+		
+		JButton button = new JButton("\u0627\u062F\u0627\u0645\u0647 \u062F\u0631\u06CC\u0627\u0641\u062A \u0627\u0637\u0644\u0627\u0639\u0627\u062A");
+		button.setBounds(47, 211, 129, 23);
+		choose.add(button);
+		
+		JPanel group = new JPanel();
+		group.setBounds(0, 0, 434, 262);
+		frame.getContentPane().add(group);
+		group.setLayout(new CardLayout(0, 0));
+		
+		JPanel fard = new JPanel();
+		fard.setBounds(0, 0, 434, 262);
+		frame.getContentPane().add(fard);
+		fard.setLayout(null);
+	}
+}
