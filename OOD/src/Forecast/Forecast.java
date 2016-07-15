@@ -6,7 +6,8 @@ import ResourceManagment.Resource;
 
 public class Forecast {
 
-	int size;
+	int humanCount;
+	int moduleCount;
 	ArrayList<Resource> guestResources;
 	ArrayList<String> technology;
 	
@@ -14,13 +15,20 @@ public class Forecast {
 	ArrayList<Resource> essentialResources;
 	ArrayList<Resource> nonessentialResources;
 	
-	public Forecast(int size,ArrayList<String> tech){
-		this.size=size;
+	public Forecast(int hum,int mod,ArrayList<String> tech){
+		this.humanCount=hum;
+		this.moduleCount=mod;
 		this.technology=tech;
 	}
 	
 	public Forecast(ArrayList<Resource> neededResource){
 		this.neededResource=neededResource;
+	}
+
+	public void estimate() {
+		// TODO Auto-generated method stub
+		//db.se
+		
 	}
 	
 	
