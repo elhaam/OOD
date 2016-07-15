@@ -3,12 +3,10 @@ package UI;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTable;
 
-public class ExistingReportUI {
+public class VerifyUserUI {
 
 	private JFrame frame;
-	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -17,7 +15,7 @@ public class ExistingReportUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ExistingReportUI window = new ExistingReportUI();
+					VerifyUserUI window = new VerifyUserUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +27,7 @@ public class ExistingReportUI {
 	/**
 	 * Create the application.
 	 */
-	public ExistingReportUI() {
+	public VerifyUserUI() {
 		initialize();
 	}
 
@@ -38,27 +36,22 @@ public class ExistingReportUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("\u06AF\u0632\u0627\u0631\u0634 \u0645\u0646\u0627\u0628\u0639 \u0645\u0648\u062C\u0648\u062F");
-		frame.setBounds(100, 100, 571, 337);
+		frame.setTitle("\u062A\u0627\u0626\u06CC\u062F \u06A9\u0627\u0631\u0628\u0631\u0627\u0646");
+		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		table = new JTable();
-		table.setBounds(10, 28, 535, 259);
-		frame.getContentPane().add(table);
 	}
 
 	public void newScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ExistingReportUI window = new ExistingReportUI();
+					VerifyUserUI window = new VerifyUserUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		});	
+		});			
 	}
 
 }

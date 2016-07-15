@@ -49,4 +49,17 @@ public class CyclicReportUI {
 		frame.getContentPane().add(table);
 	}
 
+	public void newScreen() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CyclicReportUI window = new CyclicReportUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});			
+	}
+
 }

@@ -3,7 +3,6 @@ package UI;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
 public class NeededReportUI {
@@ -47,5 +46,18 @@ public class NeededReportUI {
 		table = new JTable();
 		table.setBounds(10, 24, 551, 272);
 		frame.getContentPane().add(table);
+	}
+
+	public void newScreen() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					NeededReportUI window = new NeededReportUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});		
 	}
 }
