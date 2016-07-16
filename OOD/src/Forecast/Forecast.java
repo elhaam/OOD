@@ -2,6 +2,7 @@ package Forecast;
 
 import java.util.ArrayList;
 
+import DB.Driver;
 import ResourceManagment.Resource;
 
 public class Forecast {
@@ -10,6 +11,7 @@ public class Forecast {
 	int moduleCount;
 	ArrayList<Resource> guestResources;
 	ArrayList<String> technology;
+	private Driver db=new Driver();
 	
 	ArrayList<Resource> neededResource;
 	ArrayList<Resource> essentialResources;
@@ -19,6 +21,7 @@ public class Forecast {
 		this.humanCount=hum;
 		this.moduleCount=mod;
 		this.technology=tech;
+		
 	}
 	
 	public Forecast(ArrayList<Resource> neededResource){
@@ -27,7 +30,7 @@ public class Forecast {
 
 	public void estimate() {
 		// TODO Auto-generated method stub
-		//db.se
+		db.estimate(humanCount,moduleCount,technology);
 		
 	}
 	

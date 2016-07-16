@@ -40,15 +40,15 @@ public class createModule2 {
 	private JTextField textFieldName;
 	public Module module;
 	public Driver db;
-	public ResultSet all; 
+	//public ResultSet all; 
 	public ResultSet allResource;
 	public JComboBox comboBoxProject;
 	public int kk,ll,ii,jj;
-	public ArrayList<PhysicalResource> physicalres;
+	public ArrayList<JComboBox> physicalres=new ArrayList<JComboBox>();
 	public Object phy,hum,fin,inf,project;
-	public ArrayList<HumanResource> humanres;
-	public ArrayList<FinancialResource> financialres;
-	public ArrayList<InformationalResource> informationalres;
+	public ArrayList<JComboBox> humanres=new ArrayList<JComboBox>();
+	public ArrayList<JComboBox> financialres=new ArrayList<JComboBox>();
+	public ArrayList<JComboBox> informationalres=new ArrayList<JComboBox>();
 	
 	/**
 	 * 
@@ -77,10 +77,10 @@ public class createModule2 {
 		initialize();
 	}
 
-	private Object fillComboBox(JComboBox comboBox,String tablename,String... id) {
+	private void fillComboBox(JComboBox comboBox,String tablename,String... id) {
 		// TODO Auto-generated method stub
 		
-		all=db.getAllRows(tablename);
+		ResultSet all=db.getAllRows(tablename);
 		try {
 			
 			if(id.length >1){
@@ -89,6 +89,7 @@ public class createModule2 {
 					System.out.println(tablename+":  "+all.getString(id[i++])+" "+all.getString(id[i]));
 					 i=0;
 					comboBox.addItem(all.getString(id[i++])+" "+all.getString(id[i]));
+					
 				}
 			}
 
@@ -101,13 +102,13 @@ public class createModule2 {
 			}
 			
 			all.close();
-			return comboBox.getSelectedItem();
+			//return all;
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		//return null;
 	}
 	private void fillTable(JTable table,String TableName) {
 		// TODO Auto-generated method stub
@@ -153,7 +154,8 @@ public class createModule2 {
 		comboBoxProject.setBounds(327, 111, 113, 20);
 		choose.add(comboBoxProject);
 		
-		project=fillComboBox(comboBoxProject,"project","name");
+		//project=
+		fillComboBox(comboBoxProject,"project","projectName");
 		
 
 		JLabel label_2 = new JLabel("\u0646\u0648\u0639 \u0627\u06CC\u062C\u0627\u062F \u06A9\u0646\u0646\u062F\u0647:");
@@ -172,9 +174,9 @@ public class createModule2 {
 		label_3.setBounds(601, 25, 63, 14);
 		fard.add(label_3);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(519, 22, 42, 20);
-		fard.add(spinner);
+		JSpinner spinnerF = new JSpinner();
+		spinnerF.setBounds(519, 22, 42, 20);
+		fard.add(spinnerF);
 		
 		JLabel label_4 = new JLabel("\u0633\u0627\u0639\u062A");
 		label_4.setBounds(463, 25, 46, 14);
@@ -197,15 +199,18 @@ public class createModule2 {
 		comboBoxPhyF.setBounds(153, 27, 145, 20);
 		panel.add(comboBoxPhyF);
 		fillComboBox(comboBoxPhyF,"physical-resource","no");
-		buttonPhy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				int count=1;
-				ll +=25;
-				addMore(panel,count,153, ll, 145, 20,"physical-resource","no");
-			}
-		});
+		physicalres.add(comboBoxPhyF);
+		
 		
 		JButton fmodulebutt = new JButton("\u062B\u0628\u062A \u0645\u0627\u0698\u0648\u0644");
+		fmodulebutt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Module module=new Module(textFieldName.getText(), comboBoxProject.getSelectedItem().toString(),false,(int)spinnerF.getValue(),
+						humanres,informationalres,physicalres,financialres);
+				module.addModule();
+				module.createModule();
+			}
+		});
 		fmodulebutt.setBounds(10, 306, 89, 23);
 		fard.add(fmodulebutt);
 		
@@ -222,6 +227,7 @@ public class createModule2 {
 		comboBoxHumF.setBounds(170, 22, 145, 20);
 		panel_5.add(comboBoxHumF);
 		fillComboBox(comboBoxHumF,"human-resource","firstname","lastname");
+		humanres.add(comboBoxHumF);
 		
 		JScrollPane scrollPane_6 = new JScrollPane();
 		scrollPane_6.setBounds(349, 186, 344, 103);
@@ -241,13 +247,8 @@ public class createModule2 {
 		panel_6.add(comboBoxInfoF);
 		jj=26;
 		fillComboBox(comboBoxInfoF,"informational-resource", "no");
-		buttonInf.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				int count=1;
-				jj+=25;
-				addMore(panel_6,count,168,jj,145,20,"informational-resource", "no");
-			}
-		});
+		informationalres.add(comboBoxInfoF);
+		
 		
 		
 		JScrollPane scrollPane_7 = new JScrollPane();
@@ -268,13 +269,7 @@ public class createModule2 {
 		panel_7.add(comboBoxFinF);
 		kk=28;
 		fillComboBox(comboBoxFinF,"financial-resource-budget", "accountno");
-		buttonFin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				int count=1;
-				kk +=25;
-				addMore(panel_7,count,152,kk,145,20,"financial-resource-budget", "accountno");
-			}
-		});
+		financialres.add(comboBoxFinF);
 		
 
 		JRadioButton fardbutton = new JRadioButton("\u0641\u0631\u062F");
@@ -319,9 +314,9 @@ public class createModule2 {
 		label_5.setBounds(612, 32, 63, 14);
 		group.add(label_5);
 
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setBounds(530, 29, 42, 20);
-		group.add(spinner_1);
+		JSpinner spinnerG = new JSpinner();
+		spinnerG.setBounds(530, 29, 42, 20);
+		group.add(spinnerG);
 
 		JLabel label_6 = new JLabel("\u0633\u0627\u0639\u062A");
 		label_6.setBounds(474, 32, 46, 14);
@@ -346,11 +341,13 @@ public class createModule2 {
 		panel_2.add(comboPhys);
 		ll=27;
 		fillComboBox(comboPhys,"physical-resource","no");
+		physicalres.add(comboPhys);
 		addButPhys.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				int count=1;
 				ll +=25;
-				addMore(panel_2,count,153, ll, 145, 20,"physical-resource","no");
+				physicalres.add(addMore(panel_2,count,153, ll, 145, 20,"physical-resource","no"));
 			}
 		});
 		
@@ -358,7 +355,10 @@ public class createModule2 {
 		JButton gmodulebutt = new JButton("\u062B\u0628\u062A \u0645\u0627\u0698\u0648\u0644");
 		gmodulebutt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			//	Module module=new Module(textFieldName.getText(), comboBoxProject.getSelectedItem().toString(),);
+				Module module=new Module(textFieldName.getText(), comboBoxProject.getSelectedItem().toString(),true,(int)spinnerF.getValue(),
+						humanres,informationalres,physicalres,financialres);
+				module.addModule();
+				module.createModule();
 				
 			}
 		});
@@ -383,15 +383,17 @@ public class createModule2 {
 		comboHum.setBounds(170, 22, 145, 20);
 		panel_1.add(comboHum);
 		fillComboBox(comboHum,"human-resource","firstname","lastname");
+		humanres.add(comboHum);
+		ii=22;
 		addButHuman.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int count=0;
 				ii +=25;
-				hum=addMore(panel_1,count,170, ii, 145, 20,"human-resource","firstname","lastname");
+				humanres.add(addMore(panel_1,count,170, ii, 145, 20,"human-resource","firstname","lastname"));
 				//humanres
 			}
 		});
-		ii=22;
+		
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(360, 193, 344, 103);
@@ -414,13 +416,8 @@ public class createModule2 {
 		panel_3.add(comboInfo);
 		jj=26;
 		fillComboBox(comboInfo,"informational-resource", "no");
-		addButInfo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				int count=1;
-				jj+=25;
-				addMore(panel_3,count,168,jj,145,20,"informational-resource", "no");
-			}
-		});
+		informationalres.add(comboInfo);
+		
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -443,24 +440,58 @@ public class createModule2 {
 		panel_4.add(comboFin);
 		kk=28;
 		fillComboBox(comboFin,"financial-resource-budget", "accountno");
+		financialres.add(comboFin);
 		addButFinan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				int count=1;
+				kk +=25;
+				financialres.add(addMore(panel_4,count,152,kk,145,20,"financial-resource-budget", "accountno"));
+			}
+		});
+		
+		buttonPhy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int count=1;
+				ll +=25;
+				physicalres.add(addMore(panel,count,153, ll, 145, 20,"physical-resource","no"));
+			}
+		});
+		
+		buttonInf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int count=1;
+				jj+=25;
+				informationalres.add(addMore(panel_6,count,168,jj,145,20,"informational-resource", "no"));
+			}
+		});
+		
+		buttonFin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int count=1;
 				kk +=25;
-				addMore(panel_4,count,152,kk,145,20,"financial-resource-budget", "accountno");
+				financialres.add(addMore(panel_7,count,152,kk,145,20,"financial-resource-budget", "accountno"));
+			}
+		});
+		addButInfo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int count=1;
+				jj+=25;
+				informationalres.add(addMore(panel_3,count,168,jj,145,20,"informational-resource", "no"));
 			}
 		});
 		
 	}
 
-	protected Object addMore(JPanel panel,int count,int i, int j , int k, int l,String tablename,String... args ) {
+	protected JComboBox addMore(JPanel panel,int count,int i, int j , int k, int l,String tablename,String... args ) {
 		// TODO Auto-generated method stub
 		 JComboBox newbox = new JComboBox();
 		 newbox.setBounds(i, j, k, l);
          newbox.setName("combo" + count );
          count++;
          panel.add(newbox);
-         return fillComboBox(newbox,tablename, args);
+         fillComboBox(newbox,tablename, args);
+         return newbox;
 
 	}
 }
