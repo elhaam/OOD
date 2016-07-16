@@ -13,7 +13,8 @@ public class Module {
 	//Project project;
 	String project;
 	String name;
-	int time;
+	int timeCreate=0;
+	int timeMaintain=0;
 	ArrayList<HumanResource> developers;
 	boolean isGroup=false;
 	ArrayList<Resource> usedResource;
@@ -23,11 +24,12 @@ public class Module {
 	public ArrayList<JComboBox> finanres;
 	public Driver db=new Driver();
 	
-	public Module(String name,String project,boolean g,int time,ArrayList<JComboBox> h,ArrayList<JComboBox> i,ArrayList<JComboBox> p,ArrayList<JComboBox> f){ //,int time,ArrayList<String> dev,boolean b,ArrayList<Resource> r){
+	public Module(String name,String project,boolean g,int timecreate,int timemaintain,ArrayList<JComboBox> h,ArrayList<JComboBox> i,ArrayList<JComboBox> p,ArrayList<JComboBox> f){ //,int time,ArrayList<String> dev,boolean b,ArrayList<Resource> r){
 		this.project=project;
 		this.name=name;
 		this.isGroup=g;
-		this.time=time;
+		this.timeCreate=timecreate;
+		this.timeMaintain=timemaintain;
 		this.humanres=h;
 		this.infores=i;
 		this.physres=p;

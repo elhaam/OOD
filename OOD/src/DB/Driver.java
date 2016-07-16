@@ -181,6 +181,25 @@ public class Driver {
 			e.printStackTrace();
 		}
 	}
+	public ResultSet getModulesOFProject(String string) {
+		// TODO Auto-generated method stub
+		try{
+			String q="SELECT name FROM "+ "`simoorgh-managment-system`.`module` "+"where "+"project="+string+";" ;
+			Statement statement = connect.createStatement();
+
+			// Result set get the result of the SQL query
+			ResultSet rs=statement.executeQuery(q);
+			
+			while(rs.next())
+				System.out.println(rs);
+			return rs;
+			}
+			catch(SQLException e){
+				e.printStackTrace();
+			}
+			return null;
+		
+	}
 }
 
 

@@ -45,10 +45,16 @@ public class createModule2 {
 	public JComboBox comboBoxProject;
 	public int kk,ll,ii,jj;
 	public ArrayList<JComboBox> physicalres=new ArrayList<JComboBox>();
+	public ArrayList<JComboBox> physicalresf=new ArrayList<JComboBox>();
+
 	public Object phy,hum,fin,inf,project;
 	public ArrayList<JComboBox> humanres=new ArrayList<JComboBox>();
 	public ArrayList<JComboBox> financialres=new ArrayList<JComboBox>();
 	public ArrayList<JComboBox> informationalres=new ArrayList<JComboBox>();
+
+	public ArrayList<JComboBox> humanresf=new ArrayList<JComboBox>();
+	public ArrayList<JComboBox> financialresf=new ArrayList<JComboBox>();
+	public ArrayList<JComboBox> informationalresf=new ArrayList<JComboBox>();
 	
 	/**
 	 * 
@@ -199,14 +205,14 @@ public class createModule2 {
 		comboBoxPhyF.setBounds(153, 27, 145, 20);
 		panel.add(comboBoxPhyF);
 		fillComboBox(comboBoxPhyF,"physical-resource","no");
-		physicalres.add(comboBoxPhyF);
+		physicalresf.add(comboBoxPhyF);
 		
 		
 		JButton fmodulebutt = new JButton("\u062B\u0628\u062A \u0645\u0627\u0698\u0648\u0644");
 		fmodulebutt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Module module=new Module(textFieldName.getText(), comboBoxProject.getSelectedItem().toString(),false,(int)spinnerF.getValue(),
-						humanres,informationalres,physicalres,financialres);
+				Module module=new Module(textFieldName.getText(), comboBoxProject.getSelectedItem().toString(),false,(int)spinnerF.getValue(),0,
+						humanresf,informationalresf,physicalresf,financialresf);
 				module.addModule();
 				module.createModule();
 			}
@@ -227,7 +233,7 @@ public class createModule2 {
 		comboBoxHumF.setBounds(170, 22, 145, 20);
 		panel_5.add(comboBoxHumF);
 		fillComboBox(comboBoxHumF,"human-resource","firstname","lastname");
-		humanres.add(comboBoxHumF);
+		humanresf.add(comboBoxHumF);
 		
 		JScrollPane scrollPane_6 = new JScrollPane();
 		scrollPane_6.setBounds(349, 186, 344, 103);
@@ -247,7 +253,7 @@ public class createModule2 {
 		panel_6.add(comboBoxInfoF);
 		jj=26;
 		fillComboBox(comboBoxInfoF,"informational-resource", "no");
-		informationalres.add(comboBoxInfoF);
+		informationalresf.add(comboBoxInfoF);
 		
 		
 		
@@ -269,7 +275,7 @@ public class createModule2 {
 		panel_7.add(comboBoxFinF);
 		kk=28;
 		fillComboBox(comboBoxFinF,"financial-resource-budget", "accountno");
-		financialres.add(comboBoxFinF);
+		financialresf.add(comboBoxFinF);
 		
 
 		JRadioButton fardbutton = new JRadioButton("\u0641\u0631\u062F");
@@ -288,7 +294,7 @@ public class createModule2 {
 				if(fardbutton.isSelected()){
 					choose.setVisible(false);
 					fard.setVisible(true);
-					ResultSet rs=db.getARow("project", "name",project.toString() );
+					//ResultSet rs=db.getARow("project", "projectName",project.toString() );
 					try {
 						//System.out.println("projectttttt:"+rs.getString("name"));
 					} catch (Exception e) {
@@ -355,7 +361,7 @@ public class createModule2 {
 		JButton gmodulebutt = new JButton("\u062B\u0628\u062A \u0645\u0627\u0698\u0648\u0644");
 		gmodulebutt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Module module=new Module(textFieldName.getText(), comboBoxProject.getSelectedItem().toString(),true,(int)spinnerF.getValue(),
+				Module module=new Module(textFieldName.getText(), comboBoxProject.getSelectedItem().toString(),true,(int)spinnerF.getValue(),0,
 						humanres,informationalres,physicalres,financialres);
 				module.addModule();
 				module.createModule();
@@ -454,7 +460,7 @@ public class createModule2 {
 			public void actionPerformed(ActionEvent arg0) {
 				int count=1;
 				ll +=25;
-				physicalres.add(addMore(panel,count,153, ll, 145, 20,"physical-resource","no"));
+				physicalresf.add(addMore(panel,count,153, ll, 145, 20,"physical-resource","no"));
 			}
 		});
 		
@@ -462,7 +468,7 @@ public class createModule2 {
 			public void actionPerformed(ActionEvent arg0) {
 				int count=1;
 				jj+=25;
-				informationalres.add(addMore(panel_6,count,168,jj,145,20,"informational-resource", "no"));
+				informationalresf.add(addMore(panel_6,count,168,jj,145,20,"informational-resource", "no"));
 			}
 		});
 		
@@ -470,7 +476,7 @@ public class createModule2 {
 			public void actionPerformed(ActionEvent arg0) {
 				int count=1;
 				kk +=25;
-				financialres.add(addMore(panel_7,count,152,kk,145,20,"financial-resource-budget", "accountno"));
+				financialresf.add(addMore(panel_7,count,152,kk,145,20,"financial-resource-budget", "accountno"));
 			}
 		});
 		addButInfo.addActionListener(new ActionListener() {
